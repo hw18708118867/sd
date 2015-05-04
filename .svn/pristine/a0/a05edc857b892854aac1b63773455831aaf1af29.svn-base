@@ -1,0 +1,160 @@
+﻿<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">$MSG</div></div>
+    <div class="cont">
+<!--
+EOT;
+if($job=="manage"){
+print <<<EOT
+-->
+		<form name="form1" method="post" action="?job=$job">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="5%">ID</th>
+            <th width="45%">标题</th>
+            <th width="15%">发表时间</th>
+            <th width="10%">页码</th>
+            <th width="10%">排序</th>
+            <th width="15%">修改/删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td>$rs[rid]</td>
+            <td class="tL"><a href="..$webdb[path]/bencandy.php?fid=$rsdb[fid]&id=$aid&page=$rs[i]" target="_blank">$rs[subhead]</a></td>
+            <td>$rs[postdate]</td>
+            <td>第 $rs[i] 页</td>
+            <td> 
+<!--
+EOT;
+if($rs[i]>1){
+print <<<EOT
+-->
+                    <input type="text" name="orderDB[{$rs[rid]}]" size="3" value="{$rs[i]}">
+<!--
+EOT;
+}print <<<EOT
+-->
+               </td>
+               <td> 
+<!--
+EOT;
+if($rs[i]==1){
+print <<<EOT
+-->
+                    <a href="?job=edit&aid=$rs[aid]&mid=$mid&only=$only">修改</a> 
+<!--
+EOT;
+}else{print <<<EOT
+-->
+                    <a href="?job=edit_more&rid=$rs[rid]&mid=$mid&only=$only&aid=$rs[aid]">修改</a> 
+<!--
+EOT;
+}print <<<EOT
+-->
+                  /<a href="?action=delete&rid=$rs[rid]&mid=$mid&only=$only&aid=$rs[aid]">删除</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+        <div style="text-align:center;padding:10px 0 10px 0;">
+        	<input type="submit" name="Submit" value="修改以上排序">
+            <input type="hidden" name="step" value="2">
+            <input type="hidden" name="aid" value="$aid">
+            <input type="hidden" name="mid" value="$mid">
+            <input type="hidden" name="only" value="$only">
+        </div>
+        </form>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<div style="padding:5px 0 5px 0;">
+        	$show_guide
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="8%">FID</th>
+            <th width="44%">栏目名称</th>
+            <th width="12%">类型</th>
+            <th width="12%">投稿数量</th>
+            <th width="12%">管理内容</th>
+            <th width="12%">我要投稿</th>
+          </tr>
+<!--
+EOT;
+foreach($sortdb AS $key=>$rs){
+if(!$page&&$webdb[HideNopowerPost]&&!$rs[type]&&!$rs[post])continue;
+print <<<EOT
+-->
+           <tr> 
+              <td>{$rs[fid]}</td>
+              <td class="tL">$rs[icon]【<a href='$webdb[www_url]$webdb[path]/list.php?fid=$rs[fid]' target="_blank">{$rs[name]}</a>】</td>
+              <td> 
+<!--
+EOT;
+if($rs[type]==2){print <<<EOT
+-->
+                  <font color="#0000FF">文章</font> 
+<!--
+EOT;
+}elseif($rs[type]==1){print <<<EOT
+-->
+                  <a href="?lfj=$lfj&jobs=choose&job=$job&only=$only&mid=$mid&fid=$rs[fid]"><font color="#FF0000">大分类</font></a> 
+<!--
+EOT;
+}else{print <<<EOT
+-->
+                  子栏目 
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+            <td>$rs[NUM]</td>
+            <td>$rs[do_art]</td>
+            <td>$rs[post]</td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+<script language="JavaScript" src="images/sort.js"></script>
+<script language="JavaScript">
+<!--
+load_sort_td('$webdb[PostSortStep]');
+//-->
+</script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </div>
+</div>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">投稿注意事项!</div></div>
+    <div class="cont">
+    	$webdb[PostNotice]
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

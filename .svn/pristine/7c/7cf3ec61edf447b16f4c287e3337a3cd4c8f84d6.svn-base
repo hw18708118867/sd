@@ -1,0 +1,53 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+
+<link  rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/jionus_1.css">
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/lbsd2.js"></script>
+
+<!--------正文---------->
+<div class="lb_joinus">
+  <div class="lb_joinus1">
+	<div class="lb_joinus2">
+		<div class="lb_joinus3">
+           <img src="$webdb[www_url]/images/sd/images/Join-us_03.jpg" width="100%" height="100%" />
+        </div>
+		<div class="lb_joinus4">
+		   <p>电话：<span class="lb_joinus5">$label[lx_tel]</span></p>
+           <p>邮件：<span class="lb_joinus6">$label[lx_email]</span></p>
+		</div>
+	</div>
+	<div class="lb_joinus7">
+			<ul class="lb_joinus8">
+<!--
+EOT;
+foreach($arr AS $key=>$rs){
+print <<<EOT
+-->
+			    <li class="min_h">
+                  <a href="$webdb[www_url]/do/a_contact-us.php?job=contanct_news&fid=42&id=$rs[aid]"><p class="lb_joinus9">$rs[title]</p></a>
+                  <p class="lb_joinus10">$rs[description]</p>
+                  <p class="lb_joinus11"><img src="$webdb[www_url]/images/sd/images/jions1_15.gif" width="100%" height="100%" /></p>
+                </li>
+<!--
+EOT;
+}print <<<EOT
+-->
+		    </ul>
+        <!------------左右滑动的两箭头------------->
+		<div class="lb_joinus14">
+		   <a class="lb_joinus15" href="$webdb[www_url]/do/a_contact-us.php?job=contanct_join&pag=$fpage"><</a>
+		   <a class="lb_joinus16" href="$webdb[www_url]/do/a_contact-us.php?job=contanct_join&pag=$lpage">></a>
+		</div>
+	</div><!------滑动区域结束-------->			
+   </div>
+</div>
+</body>
+</html>
+
+<!--
+EOT;
+?>
+-->
+

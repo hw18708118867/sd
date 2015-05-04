@@ -1,0 +1,89 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style type="text/css">
+    a{
+        text-decoration:none;
+    }
+</style>
+<script src='$webdb[www_url]/images/default/setday.js'></script>
+<script type="text/javascript">
+	function lookup(inputString) {
+		if(inputString.length == 0) {
+			// Hide the suggestion box.
+			$('#suggestions').hide();
+		} else {
+			$.post("s_rpc.php", {queryString: ""+inputString+""}, function(data){
+				if(data.length >0) {
+					$('#suggestions').show();
+					$('#autoSuggestionsList').html(data);
+				}
+			});
+		}
+	} // lookup
+
+	function fill(thisValue) {
+		$('#inputString').val(thisValue);
+		setTimeout("$('#suggestions').hide();", 200);
+	}
+</script>
+
+<!--广告图-->
+<link href="$webdb[www_url]/images/zhongchou/css/News.css" rel="stylesheet">
+<div class="adv"></div>
+<!--中间内容-->
+<div class="News">
+    <div style="width: 1000px; overflow: hidden;">
+
+              <!--
+EOT;
+if($listdb){
+print <<<EOT
+-->
+
+              <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+if($rs[picurl]){
+$rs[fontweight] =($rs[fonttype]==1)?'font-weight:bold;':'';
+$rs[fontcolor]  =$rs[titlecolor]?"color:$rs[titlecolor];":'';
+print <<<EOT
+-->
+            <div style=" width: 233px; height: 297px;background: #e3e3e3;float: left; margin-left: 14px;margin-top:10px; margin-bottom: 10px;">
+                <div style=" width: 60px;height: 28px;position: absolute;margin-left: -4px; margin-top: 10px;font-size: 12px;color: #ffffff; background: url('$webdb[www_url]/images/zhongchou/pic/RedianXiangmu/List_label.png');">
+                    <a style="display: block; width: 60px;height: 24px;margin-top: 4px;background:#ff7e00 ; text-align: center;line-height: 24px;">预热中</a>
+                </div>
+                <div style="width: 233px;height: 150px;overflow: hidden;">
+                    <img style="border: 0;outline: none; width: 233px; height: 150px;" src="$webdb[www_url]/upload_files/$rs[picurl]"/>
+                </div>
+                <a href="" style="float: left;margin-left: 12px;margin-top: 10px;font-size: 12px;color: #ff003c;">评论区</a>
+                <a href="" style="float: right;margin-right: 12px;margin-top: 10px;font-size: 12px;color: #dd1a00;">大V点评区</a>
+                <a href="$rs[url]" target="_blank" style="display: block;width: 210px;height: 25px;float: left;overflow: hidden;margin-left: 12px; color: #246dac;font-size: 14px;font-weight: bold;line-height: 25px;">$rs[title]</a>
+                <div style="width:210px;height: 60px;overflow: hidden;margin-left: 12px;float: left;color: #a2a2a2;font-size: 12px;">$rs[content]</div>
+                <p style="float: left;margin-left: 12px;font-size: 12px;">$rs[posttime]</p>
+            </div>
+              <!--
+EOT;
+}}
+print <<<EOT
+-->
+
+
+    </div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="page" align="center">$showpage</td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript" src="$webdb[www_url]/images/zhongchou/js/News.js"></script><!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+?>
+-->

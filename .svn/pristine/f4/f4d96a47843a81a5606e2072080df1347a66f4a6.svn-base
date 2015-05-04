@@ -1,0 +1,71 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">信息管理</div></div>
+    <div class="cont">  
+    <!--
+EOT;
+if($listdb){
+print <<<EOT
+-->  	
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList mt10">	 
+      <tr class="head"> 
+        <td width="40%" class="tl">分 类</td>
+        <td width="20%">日 期</td>
+        <td width="10%">状态</td>
+        <td width="10%">查看</td>
+        <td width="10%">修改</td>
+        <td width="10%">删除</td>
+      </tr>
+      <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+      <tr> 
+        <td width="40%" class="tl"><a href="../list_form.php?mid=$rs[mid]" target="_blank">$rs[name]</a></td>
+        <td width="20%"><a href="../bencandy_form.php?mid=$rs[mid]&id=$rs[id]" target="_blank">$rs[posttime]</a></td>
+        <td width="10%">$rs[state]</td>
+        <td width="10%"><a href="../bencandy_form.php?mid=$rs[mid]&id=$rs[id]" target="_blank">详情</a></td>
+        <td width="10%"><a href="../form.php?job=edit&id=$rs[id]&mid=$rs[mid]" target="_blank">修改</a></td>
+        <td width="10%"><a href="../form.php?action=del&id=$rs[id]&mid=$rs[mid]" onclick="return confirm('你确认要删除吗?');" target="_blank">删除</a></td>
+      </tr>
+      <!--
+EOT;
+}
+print <<<EOT
+-->
+	<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+              <tr align="center"> 
+                <td colspan="6"><div class="page">$showpage</div></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+    </table>
+        
+        <!--
+EOT;
+}else{
+print <<<EOT
+-->
+<div class="tipsdiv">
+您暂无信息！
+</div>
+<!--
+EOT;
+}print <<<EOT
+--> 
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

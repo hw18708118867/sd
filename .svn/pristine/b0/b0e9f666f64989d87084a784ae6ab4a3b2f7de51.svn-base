@@ -1,0 +1,73 @@
+
+body, div , p, span,ul,li {margin: 0;padding: 0;}
+body {font: 100% "Microsoft YaHei",tahoma,arial,\5b8b\4f53;}
+img {border:none;}
+a {text-decoration:none;}
+ul,li{list-style-type:none;}
+
+.lb_joinus{
+	width:100%;
+	}
+.lb_joinus1{
+	width:71%;
+	margin:0 auto;
+	padding:8.33% 0;
+	overflow: hidden;
+	}
+.lb_joinus2{
+	width:27.8%;
+	float:left;
+	display:inline-block;
+	}
+.lb_joinus3{
+	width:94.5%;
+	}
+.lb_joinus4{
+	padding:5% 0 0 16.2%;
+	}
+.lb_joinus4 p{
+    font-size:120%;
+	line-height:200%;
+	}	
+.lb_joinus5{
+	font-size:130%;
+	color:#C706FC;    
+	}
+.lb_joinus6{
+	font-size:100%;    
+	}
+.lb_joinus7{
+	width:71%;
+	float:left;
+    overflow: hidden;
+    display: inline-block;
+	}
+.lb_joinus8{
+	width:100%;
+	padding-bottom:2%;
+	}
+.lb_joinus8 p{
+	font-size:120%;
+	font-weight:600;
+	}
+.lb_joinus9{
+	width:100%;
+	/*font: 100% "Microsoft YaHei",tahoma,arial,\5b8b\4f53;*/
+	font-size:80%;
+    line-height:200%;
+	color:#666;
+	}
+.lb_joinus9 span{
+	line-height:400%;
+	font-size:80%;
+	font-weight:bold;
+	color:#2F2F2F;
+	}
+.lb_joinus9 p{
+	font-size:80%;
+    line-height:200%;
+	color:#666;
+	}
+
+
+

@@ -1,0 +1,94 @@
+<html>
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title>后台管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="images/style.css" type="text/css">
+<script language="javascript">
+//if(self==top){window.location="index.php?iframe=1";}
+</script>
+<SCRIPT language=JavaScript>
+function killErrors() {
+	return true;
+}
+window.onerror = killErrors;
+</SCRIPT>
+<SCRIPT language=javascript>
+function showson(ss){
+	if (document.getElementById(ss).style.display == 'none'){
+		document.getElementById(ss).style.display = '';
+	}else{
+		document.getElementById(ss).style.display = 'none';
+	}
+}
+function showmenu(ss){
+	for(i=0;i<500;i++){
+		obj=document.getElementById("s"+i);	
+		if(ss=='open'){
+			if(obj && obj.style.display=="none"){
+				obj.style.display="";
+			}
+		}else{
+			if(obj && obj.style.display==""){
+				obj.style.display="none";
+			}
+		}
+	}
+	
+}
+</script>
+</head>
+<body leftmargin="0" topmargin="0" >
+<div id="leftmenu">
+  $mainlink 
+  <!--
+EOT;
+foreach($menu_GpartDB AS $key=>$array){
+print <<<EOT
+-->
+  <table cellspacing='0' cellpadding='0' class='tablewidth_menu'>
+    <tr> 
+      <td class='head_menu'><a href='javascript:' onclick='showson("s$key")'>$array[name]</a></td>
+    </tr>
+    <tr> 
+      <td class='c_menu'> 
+        <table width='100%' cellspacing='0' cellpadding='0' style='display:' id='s$key'>
+          <!--
+EOT;
+$ck=0;
+$endtr='';
+foreach($array[son] AS $key2=>$rs){
+$ck++;
+$endtr='</td></tr>';
+if($ck==1){
+	$a1="<tr><td onmouseover=\"this.className='leftA'\" onmouseout=\"this.className='leftB'\">";	 
+}elseif(!$rs[iftier]){
+	$a1="</td></tr><tr><td onmouseover=\"this.className='leftA'\" onmouseout=\"this.className='leftB'\">";
+}elseif($rs[iftier]){
+	$a1=" | ";
+}
+print <<<EOT
+-->
+          $a1 <A HREF='$rs[linkurl]' target='main' style="color:$rs[color];">$rs[name]</A> 
+          <!--
+EOT;
+}print <<<EOT
+-->$endtr
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!--
+EOT;
+}print <<<EOT
+-->
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

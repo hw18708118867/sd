@@ -1,0 +1,79 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/mycase.css"/>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/top1.css"/>
+
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/mycase.js"></script>
+
+
+
+
+
+
+
+
+
+<div class="an_div1">All Work</div>
+
+
+<!------------------------视频代码，需要多少个视频就循环多少个---------->
+<div class="an_div2">
+<!--
+EOT;
+$i=0;
+foreach($arr AS $key=>$rs){
+print <<<EOT
+--> 
+
+  <div class="an_div2a">
+    <dl>
+        <dt class="an_div2adt1">
+            <img src="$webdb[www_url]/upload_files/$rs[img]"/>
+            <div class="bao">
+            <a href="$webdb[www_url]/do/mycase1.php?aid=$rs[aid]">
+                <span class="an_div2adt1ff"></span>
+                <div class="an_div2adt1f">
+                    <!--<div class="an_div2adt1f1"><img src="$webdb[www_url]/images/sd/images/shi1.png"/></div>-->
+                </div>
+            </a>
+            </div>
+        </dt>
+
+      <dt class="an_div2adt2">
+        <p>$rs[year]</p>
+        <span>$rs[title]</span>       
+      </dt>
+    </dl>
+  </div>
+
+<!--
+EOT;
+$i++;
+}print <<<EOT
+--> 
+<!-------------------------------视频代码结束-------------------->
+</div>
+</div>
+
+
+<div class="ric">
+      <ul>
+        <li>
+          <a href="$webdb[www_url]/do/3_anlie.php?pag=$fpage"><span class="ric_span3" ><</span></a>
+          <!--<a href="$webdb[www_url]/do/3_anlie.php?pag=1"><span class="ric_span2"  >1</span></a>
+          <a href="#"><span class="ric_span2" >2</span></a>
+          <a href="#"><span class="ric_span2" >3</span></a>
+          <a href="#"><span class="ric_span2" >4</span></a>
+          <a href=""><span class="ric_span2"  >5</span></a>-->
+          $show
+          <a href="$webdb[www_url]/do/3_anlie.php?pag=$lpage"><span class="ric_span3" >></span></a>
+        </li>
+      </ul>
+</div>
+<!--
+EOT;
+?>
+-->
+

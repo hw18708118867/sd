@@ -1,0 +1,32 @@
+@charset "utf-8";
+/*CSS Document */
+
+/*CSS Reset*/
+body, div, p {margin: 0;padding: 0;}
+body {font:100% "Microsoft YaHei",tahoma,arial,\5b8b\4f53;}
+img {border:none;}
+a {text-decoration:none;}
+ul,li {list-style:none;margin:0;}
+
+.content {width:100%;}
+.contact-us {width:980px;margin:0 auto;padding-top:100px;overflow:hidden;}
+.contact-usL {width:30.38%;float:left;display:inline;}
+.contact-usR {width:69.62%;float:left;display:inline;}
+.contact-way1 {width:100%;}
+.contact-way2 {width:100%;height:31.79%;padding:4.5% 0 7% 0;}
+.contact-way2 p {line-height:150%;font-size:110%;padding-bottom:2.5%;}
+.contact-way2 span {padding-left:1%;}
+.linkman {border-left:0px solid #C906FF;border-top:1px solid #ccc;}
+.linkmann {width:100%;padding-bottom:25%;}
+.linkman1 {width:100%;margin-bottom:3.5%;}
+.linkman2 {padding-left:0%;position:relative;}
+
+.lk{width:20.6%;height:25.6%;display:inline-block;border-left:4px solid #C906FF;border-top:4px solid #C906FF;border-right:1px solid #ccc;border-bottom:1px solid #ccc;text-align:center;}
+.lk1 {padding-top:12%;}
+.lk2 {color:#000;font-size:180%;}
+.lk3 {color:#C906FF;font-size:100%;word-wrap:break-word;overflow:hidden;}
+.lk4 {width:6.25%;display:inline-block;}
+
+
+
+

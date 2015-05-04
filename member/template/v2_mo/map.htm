@@ -1,0 +1,105 @@
+﻿<!--
+<?php
+include(dirname(__FILE__)."/map.php");
+$grouptype = $rsdb[grouptype] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/7.gif\" title=\"企业会员\" alt=\"企业会员\"> 企业会员":"";
+$idcard_yz = $rsdb[idcard_yz] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/1.gif\" title=\"身份已认证\" alt=\"身份已认证\"> 身份已认证":"<a href='/member/yz.php?job=idcard' target='member_mainiframe'><img src=\"$webdb[www_url]/member/images/v2/yz/2.gif\" title=\"身份未认证\" alt=\"身份未认证\"> 身份未认证</a>";
+$email_yz = $rsdb[email_yz] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/3.gif\" title=\"邮箱已认证\" alt=\"邮箱已认证\"> 邮箱已认证" : "<a href='/member/yz.php?job=email' target='member_mainiframe'><img src=\"$webdb[www_url]/member/images/v2/yz/4.gif\" title=\"邮箱未认证\" alt=\"邮箱未认证\"> 邮箱未认证</a>";
+$mob_yz = $rsdb[mob_yz] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/5.gif\" title=\"手机已认证\" alt=\"手机已认证\"> 手机已认证" : "<a href='/member/yz.php?job=mob' target='member_mainiframe'><img src=\"$webdb[www_url]/member/images/v2/yz/6.gif\" title=\"手机未认证\" alt=\"手机未认证\"> 手机未认证</a>";
+$lfjdb[lastvist]=date("Y-m-d H:i:s",$lfjdb[lastvist]);
+print <<<EOT
+-->
+<div class="gonggao">
+<div class="l">网站公告：</div>
+<div class="c" id="scrollDiv">
+<ul>
+$webdb[memberNotice]
+</ul>
+</div>
+<div class="r">上次登录时间: <span>$lfjdb[lastvist]</span></div>
+</div>
+
+<script type="text/javascript">
+    function AutoScroll(obj) {
+        $(obj).find("ul:first").animate({
+            marginTop: "-25px"
+        },
+        500,
+        function() {
+            $(this).css({
+                marginTop: "0px"
+            }).find("li:first").appendTo(this)
+        })
+    }
+    $(document).ready(function() {
+        setInterval('AutoScroll("#scrollDiv")', 3000)
+    });
+</script>
+
+<div class="BaseInfo">
+<div class="icon">
+<!--
+EOT;
+if($lfjdb[icon]){
+print <<<EOT
+-->
+<img src="$lfjdb[icon]" width="100" height="100" onerror="this.src='../images/default/noface.gif'">
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<a href="/member/userinfo.php?job=edit" target="member_mainiframe"><img src="../images/default/noface.gif" title="上传头像" width="100" height="100"></a>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+<div class="info">
+<p><b>{$lfjid}</b>（$groupdb[grouptitle]{$lfjdb[C][endtime]})</h1>
+<p><i>$lfjdb[email]</i></p>
+<p class="yz">$grouptype $idcard_yz $email_yz $mob_yz</p>
+</div>
+<div class="mata">
+<p class="mon"><b>$lfjdb[money]</b>{$webdb[MoneyDW]}</p>
+<p class="btn"><a href="/member/money.php?job=list" class="submit other" target='member_mainiframe'>充值</a><a href="/member/money.php?job=record" class="submit sure" target="member_mainiframe">充值记录</a><a href="/member/money.php?job=log" class="submit sure" target="member_mainiframe">消费明细</a></p>
+</div>
+</div>
+
+<div class="fenlei">
+<div class="h"><a href="/f/member/list.php" target='member_mainiframe'>更多信息>></a>我发布的信息</div>
+<div class="c">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list">
+	<tr> 
+		<td class="head"><span>更新时间：{$rs[posttime]} 浏览：{$rs[hits]}次</span></td>
+	</tr>
+	<tr> 
+		<td class="cont">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+        <td class="tit"><a href="$rs[url]" class="p" target="_blank"><img src="$rs[picurl]" width="120" height="90" /></a> <a href="$rs[url]" class="t" target="_blank">$rs[title]</a><a href="$rs[Lurl]" class="f" target="_blank">$rs[fname]</a> </td>
+        <td class="top">[{$rs[update]}] [{$rs[dotop]}] [{$rs[pop1]}] [{$rs[pop2]}] [{$rs[pop3]}]</td>
+        <td class="edit">[<a href="../f/post.php?job=edit&fid=$rs[fid]&id=$rs[id]" target="_blank">修改]</a> 
+                  [<a href="../f/post.php?action=del&fid=$rs[fid]&id=$rs[id]" onClick="return confirm('你确认要删除吗?不可恢复');" target="_blank">删除</a>]</td>
+        </tr>
+        </table>
+
+                
+                   </td>
+              </tr>
+            </table>
+            <!--
+EOT;
+}print <<<EOT
+-->
+</div>
+</div>
+
+<!--
+EOT;
+?>
+-->

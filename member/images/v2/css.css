@@ -1,0 +1,174 @@
+/*
+*样式初始化开始
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	padding: 0; margin: 0; 
+} 
+table{ 
+	border-collapse: collapse; 
+	border-spacing: 0; 
+} 
+fieldset,img { 
+	border: 0; 
+} 
+address,caption,cite,code,dfn,em,strong,th,var { 
+	font-weight: normal; 
+	font-style: normal; 
+}
+
+ol,ul { 
+	list-style: none; 
+} 
+caption,th { 
+	text-align: left; 
+} 
+h1,h2,h3,h4,h5,h6 { 
+	font-weight: normal;
+	font-size: 100%; 
+} 
+q:before,q:after { 
+	content:”; 
+} 
+abbr,acronym { 
+	border: 0; 
+}
+body{
+	font-size:12px; font-family:"宋体"; background-color:#ffffff
+}
+td{
+	vertical-align:top;
+}
+a{
+	text-decoration:none;
+}
+a,a:link,a:visited{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+/*
+*样式初始化结束
+*/
+
+/*
+*头部开始
+*/
+#header{
+	width:100%; height:50px; background-color:#246DAC; overflow:hidden
+}
+#header .head{
+	width:980px; height:50px; margin:0px auto; overflow:hidden;
+}
+#header .head .logo{
+	float:left; width:200px; height:50px; background:url(logo.png) no-repeat left center; overflow:hidden
+}
+#header .head .login{
+	float:right; height:50px; line-height:50px; color:#ffffff; 
+}
+#header .head .login a{
+	color:#ffffff;
+}
+#header .head .login a em{
+	padding:0px 4px; background-color:#2581e3; height:11px; margin-left:3px; overflow:hidden
+}
+#header .head .login span{
+	font-family:"Arial Black", Gadget, sans-serif
+}
+
+#iframe{
+	width:978px; margin:10px auto; border:1px solid #dddddd; overflow:hidden;
+}
+#iframe #menu{
+	float:left; width:177px; border-right:1px solid #c6c8cc; background:url(left.jpg) repeat-y right top; padding-bottom:3000px; margin-bottom:-3000px; padding-top:10px; overflow:hidden
+}
+#iframe #menu dl{
+	width:177px; 
+}
+#iframe #menu dl dt{
+	font-size:14px; height:40px; line-height:40px; display:block; cursor:pointer; color:#333333; padding:0px 10px; 
+}
+#iframe #menu dl dt i{
+	float:left; width:19px; height:19px; display:block; background-image:url(nav_i.gif); background-repeat:no-repeat; margin-top:10px; margin-right:10px;
+}
+#iframe #menu dl dt .i_1{
+	background-position:-47px 0px;
+}
+#iframe #menu dl dt .i_2{
+	background-position:-47px -21px;
+}
+#iframe #menu dl dt .i_3{
+	background-position:-47px -44px;
+}
+#iframe #menu dl dt .i_4{
+	background-position:-47px -66px;
+}
+#iframe #menu dl dt .i_5{
+	background-position:-47px -90px;
+}
+#iframe #menu dl dt .i_6{
+	background-position:-47px -110px;
+}
+#iframe #menu dl dt .i_7{
+	background-position:-47px -130px;
+}
+#iframe #menu dl dt .i_8{
+	background-position:-47px -90px;
+}
+#iframe #menu dl dt .i_9{
+	background-position:-47px -90px;
+}
+#iframe #menu dl dt .i_10{
+	background-position:-47px -90px;
+}
+
+#iframe #menu dl dt.cur{
+	font-weight:bold; background:url(cur.gif) repeat-x
+}
+#iframe #menu dl dt.cur .i_1{
+	background-position:-70px 0px;
+}
+#iframe #menu dl dt.cur .i_2{
+	background-position:-70px -21px;
+}
+#iframe #menu dl dt.cur .i_3{
+	background-position:-70px -44px;
+}
+#iframe #menu dl dt.cur .i_4{
+	background-position:-70px -66px;
+}
+#iframe #menu dl dt.cur .i_5{
+	background-position:-70px -90px;
+}
+#iframe #menu dl dt.cur .i_6{
+	background-position:-70px -110px;
+}
+#iframe #menu dl dt.cur .i_7{
+	background-position:-70px -130px;
+}
+#iframe #menu dl dt.cur .i_8{
+	background-position:-70px -44px;
+}
+#iframe #menu dl dt.cur .i_9{
+	background-position:-70px -67px;
+}
+#iframe #menu dl dt.cur .i_10{
+	background-position:-70px -90px;
+}
+
+#iframe #menu dl dd{
+	display:none; padding-top:8px; padding-bottom:8px;
+}
+#iframe #menu dl dd a{
+	height:30px; line-height:30px; clear:both; display:block; padding-left:40px; font-size:14px; text-decoration:none; color:#666666; outline:none; overflow:hidden
+}
+#iframe #menu dl dd a:hover,#iframe #menu dl dd a.active{
+	background-color:#2581e3; color:#ffffff;
+}
+#iframe #content{
+	float:right; width:780px; padding:10px; background-color:#ffffff; overflow:hidden
+}
+
+#footer{
+	width:100%; text-align:center; line-height:30px; padding:10px 0px; background-color:#246DAC; color:#d2d2d2;
+}

@@ -1,0 +1,46 @@
+// JavaScript Document
+
+$(function(){
+	
+//导航
+ 	$(".div2_dt1").eq(0).mouseover(function(){
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f");
+		});	
+	$(".div2_dt1").eq(0).mouseout(function(){
+		$(this).removeClass("div2_dt1f");
+		$(this).addClass("div2_dt1");
+		});
+  	$(".div2_dt1").eq(1).mouseover(function(){
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f1");
+		});	
+	$(".div2_dt1").eq(1).mouseout(function(){
+		$(this).removeClass("div2_dt1f1");
+		$(this).addClass("div2_dt1");
+		});
+  	$(".div2_dt1").eq(2).mouseover(function(){
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f2");
+		});	
+	$(".div2_dt1").eq(2).mouseout(function(){
+		$(this).removeClass("div2_dt1f2");
+		$(this).addClass("div2_dt1");
+		});
+  	$(".div2_dt1").eq(3).mouseover(function(){
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f3");
+		});	
+	$(".div2_dt1").eq(3).mouseout(function(){
+		$(this).removeClass("div2_dt1f3");
+		$(this).addClass("div2_dt1");
+		});
+  	$(".div2_dt1").eq(4).mouseover(function(){
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f4");
+		});	
+	$(".div2_dt1").eq(4).mouseout(function(){
+		$(this).removeClass("div2_dt1f4");
+		$(this).addClass("div2_dt1");
+		});
+});

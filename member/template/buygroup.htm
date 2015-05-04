@@ -1,0 +1,138 @@
+﻿<!--
+<?php
+$width=floor(80/count($listdb)).'%';
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head">
+    	<div class="tag">
+        	购买等级
+        </div>
+    </div>
+    <div class="cont">
+<!--
+EOT;
+if($job=='buy'){print <<<EOT
+-->
+		<form name="form2" method="post" action="?action=buy">
+        <div class="yz_tips">           
+            你现在的级别是“<span class="b blue">{$ltitle[$lfjdb[groupid]]}</span>”，{$lfjdb[C][endtime]}你要购买的级别是“{$rsdb[grouptitle]}”,需要{$webdb[MoneyName]}“{$rsdb[levelnum]}”{$webdb[MoneyDW]}
+        </div>
+        <div style="margin-bottom:10px; overflow:hidden">
+        	<input type="button" name="Submit32" value="点击返回" onclick="history.back(-1)">      
+            <input type="submit" name="Submit3" value="立即购买" style="margin-left:10px;">
+            <input type="hidden" name="action" value="buy">
+            <input type="hidden" name="gid" value="$gid">
+        </div>
+<!--
+EOT;
+if($lfjdb[money]<$rsdb[levelnum]){print <<<EOT
+-->			  
+
+         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableWord">
+              <tr align="left"> 
+                <td class="tips">
+                  <h3>注意:</h3>
+                  <p>你目前的{$webdb[MoneyName]}仅有{$lfjdb[money]}{$webdb[MoneyDW]},不足{$rsdb[levelnum]}{$webdb[MoneyDW]},无法购买当前这个级别:{$rsdb[grouptitle]},请先<a href="money.php?job=list"><span class="blue">充值</span></a></p>
+                </td>
+              </tr>
+</table>              
+<!--
+EOT;
+}print <<<EOT
+-->
+        </form>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList">	 
+          <tr class="head">
+            <td width="20%">会员级别</td>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+              <td width="$width">$rs[grouptitle]</td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+          <tr>
+            <td>所需{$webdb[MoneyName]}</td>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+           <td><span class="b red">{$rs[levelnum]}</span>{$webdb[MoneyDW]}</td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+          <tr>
+            <td>投稿是否自动通过审核</td>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$pic_html=$rs[g][PassContribute]?"<img src=\"images/bigtrue.gif\"/> ":"";
+print <<<EOT
+-->
+           <td>$pic_html</td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+          <tr>
+            <td>会员空间容量</td>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$SpaceSize=number_format($webdb[totalSpace]+$rs[g][totalspace],2);
+print <<<EOT
+-->
+           <td>{$SpaceSize} M</td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+           <td>
+<!--
+EOT;
+if($rs[levelnum]){print <<<EOT
+-->
+                <a href="?job=buy&gid=$rs[gid]#buy"><img src="images/buybutton.gif" alt="购买"/></a> 
+<!--
+EOT;
+}print <<<EOT
+-->
+           </td>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </tr>
+        </table>
+
+<!--
+EOT;
+}print <<<EOT
+-->
+    </div>
+</div>
+
+
+<!--
+EOT;
+?>
+-->

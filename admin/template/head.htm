@@ -1,0 +1,84 @@
+<html>
+<head>
+<!--
+<?php
+$_admin_url=eregi('^http:',$webdb[admin_url])?$webdb[admin_url]:$webdb[www_url]."/".$webdb[admin_url];
+print <<<EOT
+-->
+<title>佰仕博后台管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="$_admin_url/images/style.css" type="text/css"/>
+
+
+
+
+<link rel="stylesheet" href="$webdb[www_url]/bsbtemp/plugin/dates/jquery-ui.css" type="text/css"/>
+<link rel="stylesheet" href="$webdb[www_url]/bsbtemp/plugin/dates/jquery-date.css" type="text/css"/>
+<script type="text/javascript" src="$webdb[www_url]/bsbtemp/js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/bsbtemp/plugin/dates/jquery-datePlugin.js"></script>
+
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $(".timeplugin").ymdateplugin({
+                showTimePanel: true
+            });
+        })
+    </script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function get_obj(obj){
+   return document.getElementById(obj);
+}
+//-->
+</SCRIPT>
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+    <style>
+        body {
+            font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+            font-size: 62.5%;
+        }
+    </style>
+</head>
+<body >
+
+<table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth" align="center">
+  <tr>
+    <td class="head">&nbsp; </td>
+  </tr>
+   
+</table><div align="center"> 
+
+
+<!--
+EOT;
+if($linkdb){
+print <<<EOT
+-->
+<table width='100%' cellspacing='1' cellpadding='3' class="tablewidth" style="margin-top:5px;">
+  <tr bgcolor='#FFFFFF'> 
+    <td bgcolor="#FFFFFF">&nbsp;
+<!--
+EOT;
+foreach($linkdb AS $name=>$url){
+print <<<EOT
+-->
+	[<a href="$url" target="$blank" style="color:$color;">$name</a>] 
+<!--
+EOT;
+}
+print <<<EOT
+--></td>
+  </tr>
+</table>
+
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

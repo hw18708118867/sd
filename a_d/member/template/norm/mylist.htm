@@ -1,0 +1,52 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+
+<!--
+EOT;
+if($listdb){
+print <<<EOT
+-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList">
+              <tr class="head"> 
+                <td width="20%">广告位名称</td>
+                <td width="28%">开始日期 / 结束日期</td>
+                <td width="34%">审核与否</td>
+                <td width="18%">修改 / 删除</td>
+              </tr>
+              <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+              <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+                <td width="20%">$rs[name]</td>
+                <td width="28%">$rs[u_begintime] / $rs[u_endtime]</td>
+                <td width="34%">$rs[_ifyz]</td>
+                <td width="18%"><a href="?job=edit&u_id=$rs[u_id]" style="color:$rs[color];" onclick="$rs[alert]">修改</a> 
+                  / <a href="?action=del&u_id=$rs[u_id]"  onclick="return confirm('你确认要删除吗?不可恢复')">删除</a></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </table>
+  <!--
+EOT;
+}else{
+print <<<EOT
+-->
+<div class="tipsdiv">
+您还没有购买广告位<a href="norm.php?job=list">点击购买！</a>
+</div>
+<!--
+EOT;
+}print <<<EOT
+-->            
+            
+            
+<!--
+EOT;
+?>
+-->

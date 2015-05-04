@@ -1,0 +1,97 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="TableWord" >
+      <form name="form1" method="post" action="">
+        <tr> 
+          <td class="head">推广赚取积分</td>
+        </tr>
+        <tr><td style="height:10px;"></td></tr>
+        <tr> 
+            <td class="tips"> 你把以下网址复制下来,通过QQ或MSN发给你朋友或者是粘贴到其它网站或论坛,只要他们点击了此网址,你就可以获得{$webdb[propagandize_Money]}积分的奖励.对于同一个访客,一天内只能统计一次有效,重复点击无效.
+          </td>
+        </tr>
+        <tr><td style="height:10px;"></td></tr>
+        <tr>
+        <td>        
+         <input type="text" name="textfield" size="90" id="urlcode" value="$webdb[www_url]/do/job.php?job=propagandize&uid=$lfjuid" style="float:left; height:30px;">
+            <input type="submit" name="Submit" value="复制" onClick="JM_cc('urlcode');alert('网址复制成功！')">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function JM_cc(ob){
+var obj=document.getElementById(ob); if (obj) { 
+obj.select();js=obj.createTextRange();js.execCommand("Copy");}
+}
+//-->
+</SCRIPT>
+        </td>
+        </tr>
+        <tr><td style="height:10px;"></td></tr>
+        </form>
+      </table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="TableWord mt10" >
+    <tr>
+    	<td class="head" colspan="5">以下是你最近{$webdb[propagandize_LogDay]}天内所带来的访客:</td>
+    </tr>
+</table>
+<!--
+EOT;
+if($listdb){
+print <<<EOT
+-->             
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList mt10">	        
+              <tr class="head"> 
+                <td width="21%">访客IP</td>
+                <td width="37%">来源地</td>
+                <td width="15%">访问时间</td>
+                <td width="27%">来源网址</td>
+              </tr>
+              <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+              <tr class='trA' onMouseOver="this.className='trB'" onMouseOut="this.className='trA'"> 
+                <td width="21%">$rs[ip]</td>
+                <td width="37%">$rs[ipfrom]</td>
+                <td width="15%">$rs[posttime]</td>
+                <td width="27%"> 
+                  <input type="text" name="textfield2" value="$rs[fromurl]" onclick="if(this.value!='')window.open('$rs[fromurl]');">
+                  <a href="?do=del&id=$rs[id]"></a></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+              <!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+              <tr align="center"> 
+                <td colspan="5">$showpage</td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->              
+            </table>
+    <!--
+EOT;
+}else{
+print <<<EOT
+-->
+<div class="tipsdiv">
+暂无访客记录！
+</div>
+<!--
+EOT;
+}print <<<EOT
+-->         
+
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!--
+<?php
+print <<<EOT
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$webdb[webname]}后台管理</title>
+<link type="text/css" rel="stylesheet" href="$webdb[www_url]/admin/images/style/style.css">
+<script src="images/js/jquery-1.9.1.js"></script>
+<script src="images/js/main.js"></script>
+</head>
+<body>
+	<div id="container">
+    	<div class="loginTop">
+        	<div class="loginTopCont">
+                <div class="logo"><img width="143" height="101" src="images/pic/logo.png" alt=""><div class="logoTitle"></div><span>www.bestber.com</span></div>
+                <div class="loginTopTitle">
+                    <div class="loginTopTitle1"><img width="602" height="44" src="images/pic/loginTopTitle.png" alt=""></div>
+                    <div class="loginTopTitle2"><img width="439" height="15" src="images/pic/loginTopTitle2.png" alt=""></div>
+                </div>   
+             </div>         
+        </div><!--END loginTop-->
+        <div class="loginCont">
+        	<div class="loginContIcon"><img width="311" height="296" src="images/pic/loginContIcon.png" alt=""></div>
+            <div class="loginContVert"></div>
+            <div class="loginContDetail">
+            <form id="form1" method="post" action="">
+            	<div class="loginContDetail_L">
+                	<span>用户登录  User Login</span>
+                    <ul>
+                    	<li><span>用户名：</span><input type="text" name="loginname" value=""></li>
+                        <li><span>密&nbsp;&nbsp;码 ：</span><input type="password" name="loginpwd" value=""></li>
+                        <!--
+EOT;
+if($webdb[web_open]&&$webdb[yzImgAdminLogin]){
+$path=$Murl?$webdb[www_url]:'..';
+print <<<EOT
+-->
+                        <li><span>验证码：</span><input type="text" name="yzimg" value="" style="width: 80px">
+                            <div class="loginVeri">
+                        	<img border="0" id="yz_Img" style="width:70px; height: 23px;" name="imageField" onclick="this.src=this.src+'?'+Math.random();" src="$path/do/yzimg.php">
+                            </div>
+                            <div style="height: 20px;width: 210px; text-align: center;font-size:14px;">
+                                <a  href="" onclick="this.src=this.src+'?'+Math.random();" src="$path/do/yzimg.php">看不清，换一张</a>
+                            </div>
+                        </li>
+                    </ul>
+                                    <!--
+EOT;
+}
+print <<<EOT
+-->
+                </div>
+                <div class="loginContDetail_R">
+                	<div class="loginContDetail_R_Icon">
+                    	<a href="javascript:$('#form1').submit()" style="background:url('images/pic/loginIcon.png'); display: block; width:59px; height:59px; text-align: center; line-height: 50px;color:white;">登录</a>
+                        <img width="" height="" src="images/pic/loginContIcon3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div><!--END loginCont-->
+        <div class="loginBottom">
+        	<div class="loginBottomBg"></div>
+        	<div class="loginBottom_txt">成都佰仕博科技有限公司  版权所有</div>
+        </div><!--END loginBottom-->
+    </div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,57 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link href="$webdb[www_url]/images/sd/css/2_clients.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/2_clients.js"></script>
+<div class="content">
+  <div class="clients">
+    <div class="client">
+      <div class="clients1">
+        <p>我们的客户&nbsp;/&nbsp;Clients</p>
+        <span>我们怀着真诚的心为您服务，认真细致的做好每一个细节</span>
+      </div>
+    </div>
+    <div class="clients2">
+    
+
+
+        <div class="clients22" id="bao1">
+
+<!--
+EOT;
+foreach($arr AS $key=>$val){
+if($key%2==0){  //$key键值为数字，直接判断键值奇偶就可以
+print <<<EOT
+-->         
+        <div class="ck"> 
+          <div class="ck1"><img src="$webdb[www_url]/upload_files/$val[picurl]"/></div> 
+<!--
+EOT;
+}
+if($key%2==1){
+print <<<EOT
+-->
+          <div class="ck1"><img src="$webdb[www_url]/upload_files/$val[picurl]"/></div>
+        </div>
+<!--
+EOT;
+}}print <<<EOT
+-->        
+
+        </div>
+
+
+     </div>
+      <div class="Button">
+          <a class="L" id="lhua1"></a>
+          <a class="R" id="rhua1"></a>
+      </div>
+  </div>
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

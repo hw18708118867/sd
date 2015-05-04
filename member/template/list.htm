@@ -1,0 +1,236 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">版主管理</div></div>
+    <div class="cont">
+    <form name="form1" method="post" action="?f">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="45%">标 题</th>
+            <th width="10%">栏 目</th>
+            <th width="15%">日期</th>
+            <th width="10%">署名</th>
+            <th width="10%">状态</th>
+            <th width="10%">修改/删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tL">
+            	<input type="checkbox" name="aidDB[]" value="$rs[aid]">
+                {$rs[aid]}、<a href="..$webdb[path]/bencandy.php?fid=$rs[fid]&id=$rs[aid]" target="_blank" title="$rs[full_title]">$rs[title]</a> 
+            </td>
+            <td><a href="..$webdb[path]/list.php?fid=$rs[fid]" target="_blank">$rs[fname]</a></td>
+            <td>$rs[posttime]</td>
+            <td>$rs[username]</td>
+            <td>$rs[state]/$rs[levels]</td>
+            <td>
+<!--
+EOT;
+if($rs[yz]==2) $del_html = "<a onclick=\"return confirm('你确实要从回收站清除本文吗?不可恢复')\" href=\"?Type=delete&aidDB[]=$rs[aid]&step=2&forcedel=1\">清除</a>";
+elseif($webdb[ForceDel]) $del_html = "<a onclick=\"return confirm('你确实要删除本文吗?不可恢复')\" href=\"?Type=delete&aidDB[]=$rs[aid]&step=2&forcedel=1\">删除</a>";
+else  $del_html = "<a href=\"?Type=delete&aidDB[]=$rs[aid]&step=2\">删除</a> ";
+print <<<EOT
+-->
+				<a href="post.php?job=manage&aid=$rs[aid]">修改</a>/$del_html 
+            </td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+        <div style="padding:15px 0 5px 0;">请选择要操作的栏目:$choose_fid</div>
+<style type="text/css">
+#work_more {
+	border:#C9E0FE solid 1px;
+	margin-top:10px;
+}
+#work_more .tR{
+	width:130px;
+	text-align:right;
+}
+</style>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable" id="work_more">
+          <tr class="show">
+            <td colspan="2">
+            	<input type="radio" name="Type" value="delete" onclick="choose('del_tr')"> 删除 
+                <input type="radio" name="Type" value="yz" onclick="choose('yz_tr')"> 审核操作 
+                <input type="radio" name="Type" value="leavels" onClick="choose('levels_tr')"> 推荐操作 
+                <input type="radio" name="Type" value="move" onclick="choose('fid_tr')"> 移动操作 
+                <input type="radio" name="Type" value="top" onclick="choose('top_tr')"> 置顶 
+                <input type="radio" name="Type" value="bottom" onclick="choose('bottom_tr')"> 沉底 
+                <input type="radio" name="Type" value="front" onClick="choose('ahead_tr')"> 提前 
+                <input type="radio" name="Type" value="color" onClick="choose('color_tr')"> 标题加亮 
+                <input type="radio" name="Type" value="return" onClick="choose('')"> 从回收站取回
+            </td>
+          </tr>
+          <tr id="del_tr">
+            <td class="tR">删除选项:</td>
+            <td class="tL">
+            	<input type="radio" name="forcedel" value="1" checked> 彻底删除 
+<!--
+EOT;
+if(!$webdb[ForceDel]){print <<<EOT
+-->
+                 <input type="radio" name="forcedel" value="0"> 放进回收站 
+<!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+          <tr id="yz_tr">
+            <td class="tR">审核选项:</td>
+            <td class="tL">
+            	<input type="radio" name="T_yz" value="1" checked> 通过审核 
+                <input type="radio" name="T_yz" value="0"> 取消审核
+            </td>
+          </tr>
+          <tr id="levels_tr">
+            <td class="tR">推荐选项:</td>
+            <td class="tL">
+            	<input type="radio" name="levels" value="1" checked> 推荐 
+                <input type="radio" name="levels" value="0"> 取消推荐
+            </td>
+          </tr>
+          <tr id="fid_tr">
+            <td class="tR">请选择移到哪个栏目:</td>
+            <td class="tL">$sort_fid</td>
+          </tr>
+          <tr id="color_tr">
+            <td class="tR">标题颜色:</td>
+            <td class="tL">
+            	<select  name="Color">
+                    <option value='' style='background-color:skyblue;color:black'  selected>标题颜色</option>
+                    <option value='black' style='background-color:skyblue;color:black'>黑色</option>
+                    <option value='skyblue' style='color:skyblue'>天蓝</option>
+                    <option value='royalblue' style='color:royalblue'>品蓝</option>
+                    <option value='blue' style='color:blue'>蓝</option>
+                    <option value='darkblue' style='color:darkblue'>暗蓝</option>
+                    <option value='orange' style='color:orange'>橙</option>
+                    <option value='orangered' style='color:orangered'>桔红</option>
+                    <option value='crimson' style='color:crimson'>深红</option>
+                    <option value='red' style='color:red'>红</option>
+                    <option value='firebrick' style='color:firebrick'>棕</option>
+                    <option value='darkred' style='color:darkred'>暗红</option>
+                    <option value='green' style='color:green'>绿色</option>
+                    <option value='limegreen' style='color:limegreen'>灰绿</option>
+                    <option value='seagreen' style='color:seagreen'>海绿</option>
+                    <option value='deeppink' style='color:deeppink'>粉</option>
+                    <option value='tomato' style='color:tomato'>西红柿色</option>
+                    <option value='coral' style='color:coral'>珊瑚色</option>
+                    <option value='purple' style='color:purple'>紫色</option>
+                    <option value='indigo' style='color:indigo'>靛青</option>
+                    <option value='burlywood' style='color:burlywood'>棕木</option>
+                    <option value='sandybrown' style='color:sandybrown'>沙褐</option>
+                    <option value='sienna' style='color:sienna'>土黄</option>
+                    <option value='chocolate' style='color:chocolate'>巧克力色</option>
+                    <option value='teal' style='color:teal'>土绿</option>
+                    <option value='silver' style='color:silver'>银</option>
+                  </select>
+            </td>
+          </tr>
+          <tr id="top_tr">
+            <td class="tR">置顶日期:</td>
+            <td class="tL">
+            	<input type="radio" name="toptime" value="86400"> 一天 
+                <input type="radio" name="toptime" value="604800"> 一星期 
+                <input type="radio" name="toptime" value="2592000"> 一月 
+                <input type="radio" name="toptime" value="31536000"> 一年
+            </td>
+          </tr>
+          <tr id="ahead_tr">
+            <td class="tR">提前到哪篇文章的前面:</td>
+            <td class="tL">
+            	<input type="text" name="topid" size="8"> 输入文章ID,留空会提到
+            </td>
+          </tr>
+          <tr id="bottom_tr">
+            <td class="tR">沉底到哪篇文章的后台:</td>
+            <td class="tL">
+            	<input type="text" name="bottomid" size="8"> 输入文章ID,留空会沉到最
+            </td>
+          </tr>
+          <tr class="show">
+            <td class="tR">操作理由:</td>
+            <td class="tL">
+            	<textarea name="reason" cols="50" rows="5">$reason</textarea> (若输入理由的话,将短消息通知作者)
+            </td>
+          </tr>
+          <tr class="show">
+            <td>&nbsp;</td>
+            <td class="tL" style="padding-bottom:5px;">
+            	<a href="javascript:" onClick="CheckAll('all')">全选</a>/<a href="javascript:" onClick='CheckAll()'>反选</a> 
+                <input type="button" name="Submit" value=" 提 交 " onclick="postwork()">
+                <input type="hidden" name="step" value="2">
+                <input type="hidden" name="job" value="$job">
+            </td>
+          </tr>
+        </table>
+    </form>
+    </div>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postwork(){
+	ckid=false;
+	cktype=false;
+	form=document.form1
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(e.name=='aidDB[]' && e.checked == true){
+			ckid=true;
+		}
+		if(e.name=='Type' && e.checked == true){
+			cktype=true;
+		}
+	}
+	if(ckid==false){
+		alert('请选择一条信息');
+		return false;
+	}
+	if(cktype==false){
+		alert('请选择一个操作类型');
+		return false;
+	}
+	form.submit();
+}
+function CheckAll(va){
+	form=document.form1
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(e.name!='aidDB[]')continue;
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+
+$(function(){
+	show_works();
+})
+function show_works(){
+	$("#work_more tr").hide();
+	$("#work_more .show").show();
+}
+function choose(trid){
+	show_works();
+	$("#"+trid).show();	
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

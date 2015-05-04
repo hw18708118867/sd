@@ -1,0 +1,35 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/2_who.css"/>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/2_who1.js"></script>
+
+<!-----------------------part1----------------------->
+<div class="div3">
+  <div class="div3a"><img src="$webdb[www_url]/images/sd/images/jls6_03.jpg"/></div>
+</div>
+<!-----------------------part2----------------------->
+<div class="div4f">
+  <div class="div4af">
+     <p class="div4ap1">加入我们</p>
+     <div class="div4a1"><img src="$webdb[www_url]/images/sd/images/jls5_03.jpg"/></div>
+     <a href="$webdb[www_url]/do/a_contact-us.php?job=contanct_join"><div class="div4a2f">Enter</div></a>
+  </div>
+  <div class="div4af">
+     <p class="div4ap1">联系我们</p>
+     <div class="div4a1"><img src="$webdb[www_url]/images/sd/images/jls5_03.jpg"/></div>
+     <a href="$webdb[www_url]/do/a_contact-us.php?job=contanct_chat"><div class="div4a2f">Enter</div></a>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

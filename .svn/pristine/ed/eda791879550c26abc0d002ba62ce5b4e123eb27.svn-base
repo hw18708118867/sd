@@ -1,0 +1,69 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+
+<!--
+EOT;
+if($listdb){
+print <<<EOT
+-->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList">
+              <form name="form1" method="post" action="?f">
+                <tr class="head"> 
+                  <td width="6%">id</td>
+                  <td width="48%" class="tl">标 题</td>
+                  <td width="12%">发件人</td>
+                  <td width="15%">时间</td>
+                  <td width="9%"> 状态</td>
+                  <td width="10%">删除</td>
+                </tr>
+                <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+                <tr> 
+                  <td width="6%">{$rs[mid]}</td>
+                  <td width="48%"  class="tl"><a href="?job=read&mid=$rs[mid]" title="$rs[full_title]" style="color:$rs[titlecolor];">$rs[title]</a></td>
+                  <td width="12%"><a href="userinfo.php?uid=$rs[fromuid]" target="_blank">$rs[username]</a></td>
+                  <td width="15%">$rs[mdate]</td>
+                  <td width="9%"> $rs[state]</td>
+                  <td width="10%"><a href="?job=del&mid=$rs[mid]">删除</a></td>
+                </tr>
+                <!--
+EOT;
+}print <<<EOT
+-->
+
+<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+                <tr align="center"> 
+                  <td colspan="6">$showpage</td>
+                </tr>
+                <!--
+EOT;
+}print <<<EOT
+-->
+              </form>
+            </table>
+  <!--
+EOT;
+}else{
+print <<<EOT
+-->
+<div class="tipsdiv">
+您暂时无消息！
+</div>
+<!--
+EOT;
+}print <<<EOT
+-->   
+        
+<!--
+EOT;
+?>
+-->

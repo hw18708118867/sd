@@ -1,0 +1,49 @@
+﻿<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head">
+    	<div class="tag">购买空间容量</div>
+    </div>
+    <div class="cont">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableWord mt10">
+              <tr align="left"> 
+                <td class="tips">
+
+            <p>你当前已用空间：<span class="red"> $lfjdb[usespace]</span>M(兆)</p>
+            <p>可用空间大小： $space_system + $space_group + $space_user - $lfjdb[usespace] = $lfjdb[totalspace] M(兆)</p>
+            <p>空间计算方式： 系统默认容量 + 用户组默认容量 + 自身容量 - 已用空间 = 可用空间大小</p>
+            <p>购买空间容量,需要消费{$webdb[MoneyName]},你当前拥有的{$webdb[MoneyName]}数是 <span class="red b">{$lfjdb[money]}</span> {$webdb[MoneyDW]} , 如果你的{$webdb[MoneyName]}不足,你可以在线充值.<a href="money.php?job=list"><span class="red b">我要充值</span></a></p>
+            <p>每1M(兆)容量的空间,需要消费<span class="red b">{$webdb[BuySpacesizeMoney]}</span>个积分</p>
+<!--
+EOT;
+if($groupdb[AllowUploadMax]){print <<<EOT
+-->
+			<p><span class="red b">提醒:</span> 你所在用户组,可以无限制上传文件,所以没必要购买空间容量 </p>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </td>
+              </tr>
+</table>           
+
+        <form name="form1" method="post" action="?action=buy">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TablePost">
+          <tr>
+            <td class="tr" width="15%">购买多少M空间：</td>
+            <td class="tl" width="85%"><input type="text" name="spacesize" size="5"> M(兆)</td>
+          </tr>
+          <tr>
+            <td class="tr" width="15%"><br/></td>
+            <td class="tl" width="85%"><input type="submit" name="Submit" value="立即购买"></td>
+          </tr>
+         </table>
+         </form>
+    </div>
+</div> 
+<!--
+EOT;
+?>
+-->

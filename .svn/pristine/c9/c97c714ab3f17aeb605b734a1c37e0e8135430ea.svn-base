@@ -1,0 +1,188 @@
+// JavaScript Document
+var winWidth = 0;
+var winHeight = 0;
+function hanshu() 
+{
+     //获取窗口宽度
+     if (window.innerWidth)
+    winWidth = window.innerWidth;
+     else if ((document.body) && (document.body.clientWidth))
+    winWidth = document.body.clientWidth;
+    //获取窗口高度
+     if (window.innerHeight)
+     winHeight = window.innerHeight;
+    else if ((document.body) && (document.body.clientHeight))
+     winHeight = document.body.clientHeight;
+     //通过深入Document内部对body进行检测，获取窗口大小
+    if (document.documentElement  && document.documentElement.clientHeight && document.documentElement.clientWidth)
+     {
+     winHeight = document.documentElement.clientHeight;
+     winWidth = document.documentElement.clientWidth;
+    }
+	
+	
+	//根据窗口变化调整网页各版块高度
+	$(function(){
+
+	
+	    //根据窗口大小选择字体大小
+		//$("body").css({"font-size":winWidth*(18/1900)});
+		//根据窗口大小控制div大小
+		$(".div3").css({"height":winWidth*(250/1900)});
+		$(".div4").css({"height":winWidth*(520/1900)});
+	    $(".div4f").css({"height":winWidth*(520/1900)});
+		});
+	
+}
+hanshu();
+window.onresize=hanshu;
+//实时获取浏览器窗口大小并调整文本图片代	
+
+
+
+$(function(){
+	
+	$(".div2_dt1").eq(4).addClass("div2_dt1f4");
+			
+		//导航
+ 	$(".div2_dt1").eq(0).mouseover(function(){
+		$(".div2_dt1").eq(4).removeClass("div2_dt1f4");
+		$(".div2_dt1").eq(4).addClass("div2_dt1");
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f");
+		});	
+	$(".div2_dt1").eq(0).mouseout(function(){
+		//$(".div2_dt1").eq(1).removeClass("div2_dt1");
+		$(".div2_dt1").eq(3).addClass("div2_dt1f4");
+		$(this).removeClass("div2_dt1f");
+		$(this).addClass("div2_dt1");
+		});
+  	$(".div2_dt1").eq(1).mouseover(function(){
+				$(".div2_dt1").eq(4).removeClass("div2_dt1f4");
+		$(".div2_dt1").eq(4).addClass("div2_dt1");
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f1");
+		});	
+	$(".div2_dt1").eq(1).mouseout(function(){
+		$(".div2_dt1").eq(3).addClass("div2_dt1f4");
+		$(this).removeClass("div2_dt1f1");
+		$(this).addClass("div2_dt1");
+		});
+  	$(".div2_dt1").eq(2).mouseover(function(){
+				$(".div2_dt1").eq(4).removeClass("div2_dt1f4");
+		$(".div2_dt1").eq(4).addClass("div2_dt1");
+	$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f2");
+		});	
+	$(".div2_dt1").eq(2).mouseout(function(){
+		$(".div2_dt1").eq(3).addClass("div2_dt1f4");
+		$(this).removeClass("div2_dt1f2");
+		$(this).addClass("div2_dt1");
+		});
+  	$(".div2_dt1").eq(3).mouseover(function(){
+				$(".div2_dt1").eq(4).removeClass("div2_dt1f4");
+		$(".div2_dt1").eq(4).addClass("div2_dt1");
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f3");
+		});	
+	$(".div2_dt1").eq(3).mouseout(function(){
+		$(".div2_dt1").eq(3).addClass("div2_dt1f4");
+		$(this).removeClass("div2_dt1f3");
+		$(this).addClass("div2_dt1");
+		});
+  	/*$(".div2_dt1").eq(4).mouseover(function(){
+				$(".div2_dt1").eq(2).removeClass("div2_dt1f2");
+		$(".div2_dt1").eq(2).addClass("div2_dt1");
+		$(this).removeClass("div2_dt1");
+		$(this).addClass("div2_dt1f4");
+		});	
+	$(".div2_dt1").eq(4).mouseout(function(){
+		$(".div2_dt1").eq(2).addClass("div2_dt1f2");
+		$(this).removeClass("div2_dt1f4");
+		$(this).addClass("div2_dt1");
+		});*/
+		
+//part2样式调整
+    $(".div4a").eq(0).css({"margin":"5% 3% 0 22%"});
+    $(".div4a").eq(1).css({"margin-top":"5%"});
+    $(".div4af").eq(0).css({"margin":"5% 3% 0 22%"});
+    $(".div4af").eq(1).css({"margin-top":"5%"});
+
+    $(".div4a").eq(0).mouseover(function(){
+		   //$(this).css({"border-color":"#0F0"});
+		   $(".div4ap1").eq(0).css({"color":"red"});
+		});
+
+    $(".div4a").eq(0).mouseout(function(){
+		   //$(this).css({"border-color":"#45CAFC"});
+		   $(".div4ap1").eq(0).css({"color":"#000"});
+		});
+
+    $(".div4a2").eq(0).mouseover(function(){
+		   
+		   $(this).css({"background-color":"#C9C","box-shadow":"0px -5px 0px #C9C inset"});
+		});	
+    $(".div4a2").eq(0).mouseout(function(){
+		   
+		   $(this).css({"background-color":"#3CF","box-shadow":"0px -5px 0px #3CF inset"});
+		});	
+		
+		
+    $(".div4a").eq(1).mouseover(function(){
+		   //$(this).css({"border-color":"#0F0"});
+		   $(".div4ap1").eq(1).css({"color":"red"});
+		});
+
+    $(".div4a").eq(1).mouseout(function(){
+		   //$(this).css({"border-color":"#45CAFC"});
+		   $(".div4ap1").eq(1).css({"color":"#000"});
+		});
+
+    $(".div4a2").eq(1).mouseover(function(){
+		   
+		   $(this).css({"background-color":"#C9C","box-shadow":"0px -5px 0px #C9C inset"});
+		});	
+    $(".div4a2").eq(1).mouseout(function(){
+		   
+		   $(this).css({"background-color":"#3CF","box-shadow":"0px -5px 0px #3CF inset"});
+		});	
+//联系我们
+   $(".div4af").eq(0).mouseover(function(){
+		   //$(this).css({"border-color":"#0F0"});
+		   $(".div4ap1").eq(0).css({"color":"red"});
+		});
+
+    $(".div4af").eq(0).mouseout(function(){
+		   //$(this).css({"border-color":"#45CAFC"});
+		   $(".div4ap1").eq(0).css({"color":"#000"});
+		});
+
+    $(".div4a2f").eq(0).mouseover(function(){
+		   
+		   $(this).css({"background-color":"#666","box-shadow":"0px -5px 0px #666 inset"});
+		});	
+    $(".div4a2f").eq(0).mouseout(function(){
+		   
+		   $(this).css({"background-color":"#C906FF","box-shadow":"0px -5px 0px #C906FF inset"});
+		});	
+		
+		
+    $(".div4af").eq(1).mouseover(function(){
+		   //$(this).css({"border-color":"#0F0"});
+		   $(".div4ap1").eq(1).css({"color":"red"});
+		});
+
+    $(".div4af").eq(1).mouseout(function(){
+		   //$(this).css({"border-color":"#45CAFC"});
+		   $(".div4ap1").eq(1).css({"color":"#000"});
+		});
+
+    $(".div4a2f").eq(1).mouseover(function(){
+		   
+		   $(this).css({"background-color":"#666","box-shadow":"0px -5px 0px #666 inset"});
+		});	
+    $(".div4a2f").eq(1).mouseout(function(){
+		   
+		   $(this).css({"background-color":"#C906FF","box-shadow":"0px -5px 0px #C906FF inset"});
+		});		
+});

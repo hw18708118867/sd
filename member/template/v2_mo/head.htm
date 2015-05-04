@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<!--
+<?php
+$ck[$job]="class='ck'";
+print <<<EOT
+-->
+<head>
+   <metahttp-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<title>会员操作平台</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/v2/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/inc.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/default.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<body>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function get_obj(obj){
+   return document.getElementById(obj);
+}
+document.write('<div class="wrap" id="wrapID">');
+//-->
+</SCRIPT>
+<!--
+EOT;
+if($linkdb){
+print <<<EOT
+-->
+<div id="guide">
+<ul>
+<!--
+EOT;
+foreach($linkdb AS $name=>$url){
+$blank=strstr($url,'http://')?'_blank':'_self';
+$cur=str_replace('?job=','',$url);
+print <<<EOT
+-->
+<li $ck[$cur]><a href="$url">$name</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+</ul>
+</div>
+<!--
+EOT;
+}?>
+-->

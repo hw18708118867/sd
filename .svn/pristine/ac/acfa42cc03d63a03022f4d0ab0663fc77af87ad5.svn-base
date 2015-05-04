@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+body{ width:100%; margin:0; padding:0; overflow-x:hidden; font-family:'微软雅黑';}
+ul{ list-style:none;}
+li{ list-style:none; padding:0; margin:0;}
+a{ text-decoration:none;}
+img{ border:0px;}
+.clear{ clear:both;}
+
+/***************login**************/
+.loginTop{ position:relative; width:100%; height:265px;background:url(../pic/loginTopBg.png) center top no-repeat; z-index:-10;}
+.loginTopCont{width:980px; height:265px; margin:0 auto;}
+.logo{ position:relative; float:left; margin-left:85px; margin-top:75px;}
+.logoTitle{ position:absolute; left:75px; top:65px; width:63px; height:20px; background:url(../pic/logoTitle.png) no-repeat;}
+.logo span{ font-size:12px; color:#fff; display:block; text-align:center;}
+.loginTopTitle{ position:relative; left:45px;top:105px;}
+.loginTopTitle2{ position:relative;left:155px;top:20px;}
+.loginCont{ position:relative; width:980px; height:245px; margin:0 auto; background-color:#fff;}
+.loginContIcon{ position:absolute; width:316px; top:-30px; float:left; left:15px; z-index:10;}
+.loginContVert{ position:absolute; width:1px; height:132px; left:390px; top:45px; background:url(../pic/loginContVert.png) center top no-repeat;}
+.loginContDetail{  margin-left:480px;}
+.loginContDetail_L{float:left; width:230px; font-size:12px; line-height:25px; color:#185389;}
+.loginContDetail_L>span{ position:relative; top:40px; font-size:14px; color:#507aa3;}
+.loginContDetail_L ul{ position:relative;top:60px;}
+.loginContDetail_L li{ position:relative; margin-top:10px;}
+.loginContDetail_L li span{ float:left;}
+.loginContDetail_L li input{ width:135px;margin-left:10px; height:20px;}
+.loginContDetail_L li .loginVeri{ position:absolute; top:3px; left:145px; width:70px; height:30px; line-height:20px; text-align:center; color:#fff; }
+.loginContDetail_L li .loginVeri a{width:50px; height:20px; display:block;}
+.loginContDetail_R{ position:relative; top:95px; float:left;margin-left:0px; width: 150px; height: 90px;}
+.loginContDetail_R_Icon{ margin-left:20px; width: 150px; height: 70px;}
+.loginContDetail_R_Icon a{ position:relative;font-size:16px; color:#fff;}
+.loginContDetail_R_Icon a span{ position:absolute; left:13px; top:-30px;display:block;}
+.loginContDetail_R_Icon>img{ position:absolute; top:65px; left:18px;}
+.loginBottom{ position:relative; width:1920px; left:50%; top:-1px; height:400px; margin-left:-960px;background:url(../pic/loginBottomBg1.png) 0px 0px;}
+.loginBottomBg{width:980px; height:128px; margin:0 auto; background:url(../pic/loginBottomBg.png) center top no-repeat; z-index:-10;}
+.loginBottom_txt{ position:absolute; left:39%;top:45px; font-size:16px; color:#b3d4f7; text-align:center; z-index:10; display:block;}
+/**************index***************/
+#container{ width:100%; height:auto; overflow:hidden;}
+.what,.work{position:relative; width:1920px; height:900px; left:50%; margin-left:-960px;}
+.what{ background-color:#000;}
+.whatBg,.whatBg1{position:absolute; top:0px; left:0px; width:1920px; height:900px;}
+.whatBg{ opacity:0.9;background:url(../pic/whatBg.png) no-repeat;}
+.whatTitle{ position:relative; top:125px; font-size:48px; color:#fff; text-align:center; text-transform:uppercase;}
+.whatTitle strong{ display:block;}
+.whatTitle span{margin-top:17px;font-size:24px; color:#fefefe;}
+.whatArrow{position:absolute;top:460px; left:22%;height:50px; line-height:50px; text-align:center;z-index:10; }
+.whatArrow a{ position:relative; width:50px; height:50px; overflow:hidden;color:#3c3c3c; font-size:24px; border-radius:50px;background-color:#fff; display:block;}
+.whatArrow_prev{left:-35px;}
+.whatArrow_next{ left:1065px; top:-50px;}
+.whatArrowLine{ position:relative; width:100%; height:1px; background-color:#5b5b5b; top:360px;}
+.whatList{ position:relative; top:200px; width:980px; height:370px; margin:0 auto; z-index:10; overflow:hidden;}
+.whatList ul{ width:9800px;}
+.whatList li{ width:225px; height:370px; float:left; margin-left:25px;}
+.whatList li img{ z-index:10;}
+.whatList li .whatIconCont{ font-size:12px; color:#737272; z-index:10; background-color:#fff;}
+.whatIconCont strong{ font-size:16px;display:block; color:#000; z-index:10;}
+.work{ height:auto;}
+.workTitle{ position:relative; height:250px;color:#000; text-align:center; background:url(../pic/workTitleBg.png) center top no-repeat;}
+.workTitle strong{ font-size:48px; display:block; text-transform:uppercase;}
+.workTitle span{ font-size:22px;}
+.span_txt2{ margin-left:20px;}
+.workTitleLine{ position:absolute; top:155px;}
+.workList{ width:100%;}
+.workList ul{ width:1920px; overflow:hidden;}
+.workList li{ position:relative; width:320px; height:240px; float:left;}
+.workList li .workIconBg{ position:absolute; top:0px; left:0px; width:320px; height:240px; background-color:#000; opacity:0.5;}
+ 

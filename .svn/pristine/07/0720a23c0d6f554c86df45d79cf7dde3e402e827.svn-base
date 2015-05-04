@@ -1,0 +1,67 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableWord">
+	<tr> 
+		<td class="head">我收藏的信息</td>
+    </tr>
+</table>
+
+<!--
+EOT;
+if($listdb){
+print <<<EOT
+-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList"> 
+        <tr class="head"> 
+            <td width="60%" class="tl">标 题</td>
+            <td width="15%">栏 目</td>
+            <td width="15%">收藏日期</td>
+            <td width="10%">删除</td>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tl"><a href="..$webdb[path]/bencandy.php?fid=$rs[fid]&id=$rs[aid]" target="_blank" title="$rs[full_title]">$rs[title]</a></td>
+            <td><a href="..$webdb[path]/list.php?fid=$rs[fid]" target="_blank">$rs[fname]</a></td>
+            <td>$rs[ctime]</td>
+            <td><a href="?do=del&id=$rs[id]"><img alt='点击删除' src='../member/images/del_icon2.gif'/></a></td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->          
+          
+<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+              <tr align="center"> 
+                <td colspan="5"><div class="page">$showpage</div></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+--> 
+            </table>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<div class="tipsdiv">
+您还没有收藏任何信息！
+</div>
+<!--
+EOT;
+}print <<<EOT
+-->  
+<!--
+EOT;
+?>
+-->

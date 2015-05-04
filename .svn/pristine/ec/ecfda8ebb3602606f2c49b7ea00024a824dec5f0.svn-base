@@ -1,0 +1,76 @@
+﻿<!--
+<?php
+print <<<EOT
+--> 
+<style type="text/css">
+.ListSp{
+	margin-bottom:10px;
+	border:#DDD dotted 1px;
+}
+.ListSp .img{
+	width:150px;
+	padding:10px;
+}
+.ListSp .img div{
+	border:#DDD solid 1px;
+	padding:1px;
+}
+.ListSp .img div a{
+	display:block;
+	width:150px;
+	height:120px;
+	background:#EFEFEF;
+	overflow:hidden;
+}
+.ListSp .word{
+	padding:5px;
+	border-left:#DDD dotted 1px;
+}
+.ListSp .word div{
+	padding:3px 0 0 3px;
+	line-height:18px;
+}
+.ListSp .word div span{
+	color:#888;
+}
+</style>
+<div class="MainCont">
+    <div class="cont">    	
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListSp">
+              <tr> 
+                <td class="img">
+                <div><a href="../do/showsp.php?fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$rs[picurl]" onerror="this.src='../images/default/noimg.jpg'" width="150"/></a></div>
+                </td>
+                <td class="word">
+                	<div>专题名称:<a href="../do/showsp.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+                    <div>所属分类:<a href="../do/listsp.php?fid=$rs[fid]" target="_blank">$rs[fname]</a></div>
+<!--
+EOT;
+$personals = $rs[personal] ? "私密" : "公开";
+$edit_bbs = $webdb[passport_type] ? "<a href=\"?job=edit_bbs&id=$rs[id]\">管理贴子</a>" : "";
+print <<<EOT
+-->
+                    <div>专题性质:<span>$personals</span> 创建日期:<span>$rs[posttime]</span> 内容总数:<span>{$rs[NUM]}篇</span> 审核状态: $rs[_yz]</div>
+                    <div>相关操作:<a href="?job=edit_atc&id=$rs[id]">管理文章</a> $edit_bbs <a href="?job=editsp&id=$rs[id]">修改</a> <a onClick="return confirm('你确实要删除吗?不可恢复哦!')" href="?job=delsp&id=$rs[id]">删除</a></div>
+                    <div>专题介绍:<span>$rs[content]</span></div>
+                  </td>
+              </tr>
+            </table>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

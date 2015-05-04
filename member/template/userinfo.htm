@@ -1,0 +1,193 @@
+﻿<!--
+<?php
+$grouptype = $lfjdb[grouptype] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/7.gif\" title=\"企业会员\" alt=\"企业会员\"> 企业会员":"";
+$idcard_yz = $lfjdb[idcard_yz] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/1.gif\" title=\"身份已认证\" alt=\"身份已认证\"> 身份已认证":"<a href='/member/yz.php?job=idcard' target='member_mainiframe'><img src=\"$webdb[www_url]/member/images/v2/yz/2.gif\" title=\"身份未认证\" alt=\"身份未认证\"> 身份未认证</a>";
+$email_yz = $lfjdb[email_yz] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/3.gif\" title=\"邮箱已认证\" alt=\"邮箱已认证\"> 邮箱已认证" : "<a href='/member/yz.php?job=email' target='member_mainiframe'><img src=\"$webdb[www_url]/member/images/v2/yz/4.gif\" title=\"邮箱未认证\" alt=\"邮箱未认证\"> 邮箱未认证</a>";
+$mob_yz = $lfjdb[mob_yz] == 1 ? "<img src=\"$webdb[www_url]/member/images/v2/yz/5.gif\" title=\"手机已认证\" alt=\"手机已认证\"> 手机已认证" : "<a href='/member/yz.php?job=mob' target='member_mainiframe'><img src=\"$webdb[www_url]/member/images/v2/yz/6.gif\" title=\"手机未认证\" alt=\"手机未认证\"> 手机未认证</a>";
+print <<<EOT
+-->
+
+<div class="MainCont">
+    <div class="cont">
+        
+<!--
+EOT;
+if($job=='list'){print <<<EOT
+-->
+<form name="form1" method="post" action="?action=list" enctype="multipart/form-data" onsubmit="return ckregdatapost();">
+        <h2><b>联系方式</b></h2>
+        <dl>
+        <dt>用户名：</dt>
+        <dd><b>$lfjid</b></dd>
+        </dl>
+        <dl>
+        <dt>安全邮箱：</dt>
+        <dd>$lfjdb[email] <span class="yz">$email_yz</span></dd>
+        </dl>
+        <dl>
+        <dt>QQ号码：</dt>
+        <dd><input type="text" name="oicq" style="width:130px;" value="$lfjdb[oicq]"></dd>
+        </dl>
+        <dl>
+        <dt>手机号码：</dt>
+        <dd><input type="text" name="mobphone" style="width:130px;" value="$lfjdb[mobphone]" maxlength="11" $ipunt_mob> <span class="yz">$mob_yz</span></dd>
+        </dl>
+        <h2><b>其它资料</b></h2>
+        <dl>
+        <dt>真实姓名：</dt>
+        <dd><input type="text" name="truename" style="width:130px;" value="$lfjdb[truename]" $ipunt_idcard> <span class="yz">$idcard_yz</span></dd>
+        </dl>
+        <dl>
+        <dt>性别：</dt>
+        <dd><label><input type="radio" name="sex" value="0" $sex_db[0]>保密</label> 
+                <label><input type="radio" name="sex" value="1" $sex_db[1]>男</label>  
+                <label><input type="radio" name="sex" value="2" $sex_db[2]>女</label> </dd>
+        </dl>
+        <dl>
+        <dt>生日：</dt>
+        <dd><input type="text" name="bday" style="width:130px;" value="$lfjdb[bday]"></dd>
+        </dl>
+        <dl>
+        <dt>邮编：</dt>
+        <dd><input type="text" name="postalcode" style="width:130px;" value="$lfjdb[postalcode]"></dd>
+        </dl> 
+        <dl>
+        <dt>家乡：</dt>
+        <dd><SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/select_menu.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var input_value='$lfjdb[cityid]';
+var input_name='cityid';
+var select_type='2';
+var file='../do/ajax_select.php';
+var DIV_idb='DIV_idb'+Math.random();
+var input_idb='input_idb'+Math.random();
+document.write("<span id='"+DIV_idb+"'></span>");
+document.write("<input type='hidden' id='"+input_idb+"' name='"+input_name+"'  size='5' value='"+input_value+"'>");
+get_div_S(DIV_idb,DIV_idb,input_idb,select_type,'',input_value);
+//-->
+</SCRIPT></dd>
+        </dl>
+        <dl>
+        <dt>通讯地址：</dt>
+        <dd><input type="text" name="address" style="width:250px;" value="$lfjdb[address]"></dd>
+        </dl>
+        <dl>
+        <dt>个人主页：</dt>
+        <dd><input type="text" name="homepage" style="width:250px;" value="$lfjdb[homepage]"></dd>
+        </dl>
+        <dl>
+        <dt>个人签名：</dt>
+        <dd><textarea name="introduce" cols="50" rows="5">$lfjdb[introduce]</textarea></dd>
+        </dl>
+        <dl>
+        <dt></dt>
+        <dd><input type="submit" name="Submit3" value="提 交"></dd>
+        </dl>     
+        
+</form>
+<!--
+EOT;
+}elseif($job=='icon'){print <<<EOT
+-->
+<script>
+var prevIcon;
+function icon(num) {
+	num.className = "selected";
+	if (typeof(prevIcon) != "undefined") {
+		prevIcon.className = "unselected";
+	} else {
+		document.all.firstface.className = "unselected";		
+	}
+	if (num.className == "unselected") {
+		num.className = "selected";		
+	}
+	prevIcon = num;
+	document.all.face.value = num.childNodes(0).id;	
+}
+</script>
+
+<form name="form1" method="post" action="?action=icon" enctype="multipart/form-data">
+<dl>
+	<dt></dt>
+	<dd>
+        <label><input type="radio" name="iface" value="old" onclick="face_icon('old')" checked="checked" />系统头像</label> 
+        <label><input type="radio" name="iface" value="new" onclick="face_icon('new')" />上传头像</label> 
+    </dd>
+</dl>
+<dl class="icon">
+	<dt><img src="$lfjdb[icon]" width="100" height="100" onerror="this.src='../images/default/noface.gif'"></dt>
+	<dd>
+    	<span id="icon_web"><input type="text" name="posticon" id="posticon" style="width:340px;"></span>
+        <span id="icon_file" style="display:none;"><input type="file" name="postfile" style="width:340px"></span>
+    	<p class="tips">图片格式:GIF、JPG、PNG,最适合尺寸100*100 像素</p><input type="submit" name="Submit3" value="提 交"></dd>
+</dl>
+<dl id="icon_face">    
+<div class="icon">        
+<ul>
+<li onClick="icon(this);document.getElementById('posticon').value='$webdb[www_url]/images/default/icon/1.jpg';" class="selected" id="firstface"><img src="$webdb[www_url]/images/default/icon/1.jpg" width="65" height="65" id="1"></li>
+<!--
+EOT;
+for($i=2;$i<21;$i++){
+print <<<EOT
+-->
+<li onClick="icon(this);document.getElementById('posticon').value='$webdb[www_url]/images/default/icon/$i.jpg';" class="unselected"><img src="$webdb[www_url]/images/default/icon/$i.jpg" width="65" height="65" id="$i"></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+<input name="face" type="hidden" value="1">
+</ul>
+</div>
+</dl>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function face_icon(t){
+	if(t=='old'){
+		$("#icon_web").show();
+		$("#icon_file").hide();	
+		$("#icon_face").show();	
+	}else if(t=='new'){
+		$("#icon_web").hide();
+		$("#icon_file").show();
+		$("#icon_face").hide();	
+	}
+}
+//face('$webdb[MailType]');
+//-->
+</SCRIPT>
+<!--
+EOT;
+}elseif($job=='password'){print <<<EOT
+-->
+<form name="form1" method="post" action="?action=password" enctype="multipart/form-data">
+		<dl>
+        <dt>旧密码：</dt>
+        <dd><input type="password" name="old_password" style="width:200px;"></dd>
+        </dl>
+        <dl>
+        <dt>新密码：</dt>
+        <dd><input type="password" name="password"  style="width:200px;"></dd>
+        </dl>
+        <dl>
+        <dt>确认密码：</dt>
+        <dd><input type="password" name="password2" style="width:200px;"></dd>
+        </dl>
+        <dl>
+        <dt></dt>
+        <dd><input type="submit" name="Submit3" value="提 交"></dd>
+        </dl>
+</form>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+		
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

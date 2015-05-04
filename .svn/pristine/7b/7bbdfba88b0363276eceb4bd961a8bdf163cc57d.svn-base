@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link href="$webdb[www_url]/images/sd/css/top1.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/2_who.css"/>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/2_who.js"></script>
+<!--<script type="text/javascript" src="$webdb[www_url]/images/sd/js/top.js"></script>-->
+
+
+
+
+
+
+
+<!-----------------------part1----------------------->
+<div class="div3">
+  <div class="div3a"><img src="$webdb[www_url]/images/sd/images/jls3_03.jpg"/></div>
+</div>
+<!-----------------------part2----------------------->
+<!--<div class="div4">-->
+    <div class="center_box clearfix center_wm">
+        <div class="div4a">
+            <p class="div4ap1">我们的案列</p>
+            <div class="div4a1"><img src="$webdb[www_url]/images/sd/images/jls5_03.jpg"/></div>
+            <a href="$webdb[www_url]/do/3_anlie.php"><div class="div4a2">Enter</div></a>
+        </div>
+        <div class="div4a" style="float:right;margin-left:0;margin-right:100px;">
+            <p class="div4ap1">我们的客户</p>
+            <div class="div4a1"><img src="$webdb[www_url]/images/sd/images/jls5_03.jpg"/></div>
+            <a href="$webdb[www_url]/do/2_who.php?job=client"><div class="div4a2">Enter</div></a>
+        </div>
+
+
+        <div class="img_posi img_posi_2"></div>
+        <div class="img_posi img_posi_r img_posi_2_r"></div>
+    </div>
+<!--</div>-->
+<!--
+EOT;
+?>
+-->
+
+

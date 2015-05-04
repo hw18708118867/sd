@@ -1,0 +1,67 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/4_anlie.css"/>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/top1.css"/>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/4_anlie.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/top.js"></script>
+
+<!------正文部分------>
+
+<div class="shidiv">
+   
+   <div class="dianl" id="left"><div class="dianbao"><img src="$webdb[www_url]/images/sd/images/left.png"/></div></div>
+   <div class="dian2" id="right"><div class="dianbao1"><img src="$webdb[www_url]/images/sd/images/right.png"/></div></div>
+   
+ <div id="dong" style="position:relative; height:58%; margin-top:8%; width:1000000000px;"> 
+ 
+ 
+ 
+   <div class="shidivbao" id="bao1">
+
+
+
+<!--
+EOT;
+foreach($arr AS $key=>$rs){
+print <<<EOT
+-->
+     <div class="shidivbao1">
+       <img src="$webdb[www_url]/upload_files/$rs" />
+       <div class="shidivbao1f">
+           <div class="shidivbao1fjia0"><img src="$webdb[www_url]/upload_files/$rs" /></div>
+          
+        </div>
+     </div>
+<!--    
+EOT;
+}print <<<EOT
+-->
+
+</div>
+
+</div>      
+   
+</div>
+
+           <div class="shidivbao1fjia">
+              <dl>
+
+                 <dt class="shidivbao1fjia_dt1" style="background-color:#242425;" id='top1'>$ar[title]</dt>
+                 <dt class="shidivbao1fjia_dt2">
+                     <div style="width:100%; height:15%; background-color:#242425;"></div>
+                     <div style="width:100%; height:70%; background-color:#00B9FF;"></div>
+                     <div style="width:100%; height:15%; background-color:#242425;"></div>
+                  </dt>
+                 <dt class="shidivbao1fjia_dt3" id="top2" style="background-color:#242425;">$ar[content]</dt>
+              </dl>
+           </div>
+</body>
+</html>
+
+<!--
+EOT;
+?>
+-->

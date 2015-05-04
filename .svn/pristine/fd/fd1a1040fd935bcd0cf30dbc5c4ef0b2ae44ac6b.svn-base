@@ -1,0 +1,112 @@
+
+body, div , p, span {margin: 0;padding: 0;}
+body {font: 100% "Microsoft YaHei",tahoma,arial,\5b8b\4f53;background-color:#F9F7F7;}
+img {border:none;}
+a {text-decoration:none;}
+
+.lb_chuanbo{
+	width:100%;
+	background-color:#F9F7F7;
+	display:inline-block;
+	}
+.lb_chuanbo1{
+	width:980px;
+	margin:0 auto;
+	padding:100px 0;
+	overflow: hidden;
+	}
+.lb_chuanbo2{
+	width:18.5%;
+	float:left;
+	display: inline;
+	}
+.lb_chuanbo3{
+	width:76%;
+	margin-right:23.8%;
+	}
+.lb_chuanbo4{
+	width:100%;
+	margin-top:40%;
+	}
+.lb_chuanbo5{
+	width:63.5%;
+	float:left;
+	padding:0 11% 0 7%;
+	display: inline;
+	}
+.lb_chuanbo6{
+	width:40%;
+	margin:0 auto;
+	}
+.lb_chuanbo7{
+	text-align:center;
+	letter-spacing:20px;
+	}
+.lb_chuanbo7 p{
+    font-size:130%;
+	font-weight:bold;
+	color:#6E6C6B;
+	}
+.lb_chuanbo8{
+	width:100%;
+	padding:3.5% 0 4% 0;
+	}
+.lb_chuanbo8 p{
+	font-size:90%;
+	font-weight:500;
+	color:#323232;
+	line-height:180%;
+	}
+.lb_chuanbo9{
+	width:100%;
+	height:20%;
+	}
+.lb_chuanbo9 p{
+	font-size:240%;
+	color:#EA8813;
+	text-align:center;
+	}
+.lb_chuanbo9 span{
+	color:#232323;	
+	font-size:70%;
+	}	
+.lb_chuanbo10{
+	font-size:120%;
+	font-family:"楷体";
+	color:#232323;
+	letter-spacing:10px;
+	text-align:center;
+	padding:3% 0;
+	}	
+.lb_chuanbo11{
+	width:100%;
+	}
+.lb_chuanbo11 p{
+	font-size:90%;
+	font-weight:500;
+	color:#323232;
+	line-height:180%;
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

@@ -1,0 +1,90 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+    <div class="cont">
+    	<form name="form1" method="post" action="?job=$job">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TablePost" style="margin-top:0px;"> 
+          <tr>
+          	<td colspan="2" class="th">$MSG</td>
+          </tr>
+          <tr>
+            <td width="15%" class="tr"><span class="red">*</span> 专题名称：</td>
+            <td  width="85%" class="tl"><input type="text" name="postdb[title]" size="80" value="$rsdb[title]"></td>
+          </tr>
+          <tr>
+            <td width="15%" class="tr"><span class="red">*</span> 专题分类：</td>
+            <td  width="85%" class="tl">{$sort_fid}</td>
+          </tr>
+          <tr>
+            <td width="15%" class="tr">权限设置：</td>
+            <td  width="85%" class="tl">
+            	<div>$group_post</div>
+                <div>(留空则不作限制.允许哪些用户组添加内容到此专题,而管理员不受限制)</div>
+            </td>
+          </tr>
+          <tr>
+            <td width="15%" class="tr">专题封面：</td>
+            <td  width="85%" class="tl">
+            	<input type="text" name="postdb[picurl]" value="$rsdb[picurl]" size="60" id="imgurl">
+                    [<a href='javascript:;window.open("../do/upfile.php?dir=special","","width=350,height=50,top=200,left=400");'><font color="#FF0000">点击上传图片</font></a>] 
+                    <a href="javascript:;javascript:cutimg();" class="style30">[<font color="#FF0000">剪裁图片</font>]</a> 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,p){
+	get_obj("imgurl").value=url;
+}
+//-->
+</SCRIPT>
+<script language="javascript">
+function cutimg() 
+{
+	var img=get_obj("imgurl").value;
+	if(img!=''){
+		if(img.indexOf("http://")==-1){
+			img="$webdb[www_url]/$webdb[updir]/"+img;
+		}
+		window.open("../do/cutimg.php?job=cutimg&width=250&height=187&srcimg="+img,'',"width=480,height=430")
+	}else{
+		get_obj("imgurl").focus();
+		alert('图片地址不存在');
+	}
+}
+</script>
+            </td>
+          </tr>          
+          <tr>
+            <td width="15%" class="tr">横幅banner：</td>
+            <td  width="85%" class="tl">
+            	<input type="text" name="postdb[banner]" value="$rsdb[banner]" size="60" id="banner">
+                    [<span class="red" onClick='window.open("../do/upfile.php?dir=special&fn=upfile2","","width=350,height=50,top=200,left=400")'>点击上传图片</span>]
+<script language="JavaScript">
+<!--
+function upfile2(url,name,size,p){
+	get_obj("banner").value=url;
+}
+//-->
+</script>
+            </td>
+          </tr>
+          <tr>
+            <td width="15%" class="tr">专题介绍：</td>
+            <td  width="85%" class="tl"><textarea name="postdb[content]" cols="80" rows="8">$rsdb[content]</textarea></td>
+          </tr>
+          <tr>
+            <td width="15%" class="tr"><br/></td>
+            <td  width="85%" class="tl">
+            	<input type="submit" name="Submit" value=" 提 交 ">
+                <input type="hidden" name="step" value="2">
+                <input type="hidden" name="id" value="$id">
+            </td>
+          </tr>
+         </table>
+         </form>
+    </div>
+</div> 
+<!--
+EOT;
+?>
+-->

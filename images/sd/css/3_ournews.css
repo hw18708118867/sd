@@ -1,0 +1,61 @@
+
+body, div, p, span,ul,li {margin: 0;padding: 0;}
+body {font: 100% "Microsoft YaHei",tahoma,arial,\5b8b\4f53;background-color:#F9F7F7;}
+img {border:none;}
+a {text-decoration:none;}
+ul,li{list-style-type:none;}
+
+.lb_joinus{
+	width:100%;
+	}
+.lb_joinus1{
+	width:71%;
+	margin:0 auto;
+	padding:8.33% 0;
+	overflow: hidden;
+	}
+.lb_joinus2{
+	width:22%;
+	float:left;
+	display:inline-block;
+	}
+.lb_joinus3{
+	width:66%;
+	padding:0 7% 0 5%;
+	float:left;
+	overflow:hidden;
+	display:inline-block;
+	}
+.lb_joinus4{
+	width:100%;
+	display:block;
+	}
+.lb_joinus4 p{
+	font-size:110%;
+	font-weight:600;
+	}
+.lb_joinus4 span{
+	font-size:80%;
+	color:#7B7B7B;
+    line-height:400%;
+	}
+.lb_joinus5{
+	font-size:70%;
+	line-height:200%;
+	/*font-weight:500;*/
+	color:#2F2F2F;
+	padding-bottom:10px;
+	}
+.lb_joinus5 p{
+	font-size:70%;
+    line-height:200%;
+	}
+.lb_joinus5 span{
+	font-weight:bold;
+    line-height:400%;
+	}
+
+
+
+
+

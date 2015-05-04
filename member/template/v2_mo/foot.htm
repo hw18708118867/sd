@@ -1,0 +1,47 @@
+﻿<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('</div>');
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function set_class(){
+	obj=document.body.getElementsByTagName("input");
+	for(var i=0;i< obj.length;i++ ){
+		if(obj[i].type=='submit'||obj[i].type=='button'){
+			obj[i].className='input_submit';
+		}else if(obj[i].type=='text'||obj[i].type=='password'){
+			obj[i].className='input_text';
+		}else if (obj[i].type=='radio'){
+			obj[i].className='input_radio';
+		}else if (obj[i].type=='checkbox'){
+			obj[i].className='input_checkbox';
+		}else if (obj[i].type=='file'){
+			obj[i].className='input_file';
+		}
+	}
+	obj=document.body.getElementsByTagName("textarea");
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='input_textarea';
+	}
+	obj=document.body.getElementsByTagName("select");
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='input_select';
+	}
+	if(document.getElementById("top_menu")!=null)
+	{
+		obj2=get_obj('top_menu').getElementsByTagName("td");
+	
+		for(var i=0;i< obj2.length;i++ ){
+			s=obj2[i].innerHTML;
+			s=s.replace(/\[|\]/g, "");
+			obj2[0].innerHTML=s;	
+		}
+	}
+	
+}
+set_class();
+//-->
+</SCRIPT>
+</body>
+</html>

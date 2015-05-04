@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+$pmhtml=$pmNUM?"<a href=\"pm.php?job=list\" target=\"member_mainiframe\">消息<em>$pmNUM</em></a>":"<a href=\"pm.php?job=list\" target=\"member_mainiframe\">消息</a>";
+print <<<EOT
+-->
+<head>
+<title>会员中心 </title>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<link rel="stylesheet" type="text/css" href="images/v2/css.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<script type="text/javascript">
+function SetCwinHeight(){
+	var obj=document.getElementById("member_mainiframe"); //iframe id
+	if (document.getElementById){
+		if (obj && !window.opera){
+			if (obj.contentDocument && obj.contentDocument.body.offsetHeight){
+				obj.height = obj.contentDocument.body.offsetHeight;
+			}else if(obj.Document && obj.Document.body.scrollHeight){
+				obj.height = obj.Document.body.scrollHeight;
+			}
+			if(obj.height<800){
+				obj.height=800;
+			}
+		}else {
+			obj.height = 1000;
+		}
+		//navigator.userAgent.toLowerCase().indexOf("msie 8.0") != -1
+		//obj.document.getElementById("footer").style.display='none';
+	}
+}
+</script>
+<script type="text/javascript" src="images/v2/jquery-1.4.2.min.js"></script>
+<script>
+    $(function() {
+        var flag = 0;
+        var menu_dt = $('.slider dt');
+        var menu_dd = $('.slider dd');
+        menu_dd.eq(0).show();
+        menu_dt.eq(0).css('cursor', 'default');
+        menu_dt.click(function() {
+            if (menu_dt.index(this) == flag) return false;
+            flag = menu_dt.index(this);
+            menu_dd.not(menu_dd.eq(flag)).slideUp();
+            menu_dd.eq(flag).slideDown();
+            menu_dt.eq(flag).css('cursor', 'default').addClass('cur');
+            menu_dt.not(menu_dt.eq(flag)).css('cursor', 'pointer').removeClass('cur')
+        })
+    });
+	$(function() {
+		$(".slider dl dd").children("a").click(function() {
+			//alert($(".slider dl dd").children("a").length);
+			$(".slider dl dd").children("a").css("color", "").css("background-color", "");
+			$(this).css("color", "#ffffff").css("background-color", "#2581e3")
+		})
+	});
+</script>
+
+
+<body>
+
+<div id="header">
+<div class="head">
+<div class="logo"></div>
+<div class="login">欢迎你回来：<span>$lfjid</span> <A HREF="$webdb[www_url]/member/homepage.php?uid=$lfjuid" target=_blank>个人信息</A> $pmhtml <a href="../do/login.php?action=quit"><span>安全退出</span></a>  <a href="$webdb[www_url]"><span>网站首页</span></a></div>
+</div>
+</div>
+
+<div id="iframe"> 
+<div id="menu" class="slider">
+
+<!--
+EOT;
+$k=0;
+foreach($menudb AS $SortName=>$array){
+$k++;
+$menu_cur = $k==1 ? " class='cur'" : "";
+print<<<EOT
+-->
+<dl> 
+<dt{$menu_cur}><i class="i_$k"></i>{$SortName}</dt>
+<dd><!--
+EOT;
+foreach($array AS $MenuName=>$array2){
+if($power<$array2[power])continue;
+if($array2[target]){
+$target=$array2[target];
+}elseif(ereg("^../",$array2[link])){
+$target='_blank';
+}else{
+$target='member_mainiframe';
+}
+print<<<EOT
+-->
+<A HREF='$array2[link]' target='$target'>$MenuName</A>
+<!--
+EOT;
+}print<<<EOT
+--></dd>
+</dl>
+<!--
+EOT;
+}print<<<EOT
+--> 
+
+
+</div>
+<div id="content">
+<iframe width="100%" name="member_mainiframe" id="member_mainiframe" height="100"  onload="Javascript:SetCwinHeight();self.scroll(0,0);" scrolling="no" marginwidth=0 marginheight=0 frameborder="0" src="$MainUrl"></iframe>
+</div>
+</div>
+<div id="footer">
+<p>众筹网</p>
+</div>
+
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

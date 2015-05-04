@@ -1,0 +1,51 @@
+
+
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+}
+a{text-decoration:none;}
+.div1
+{width:100%;
+height:6px;
+background-image:url(../images/jls1_01.jpg);
+background-size:100% 100%;
+}
+.div2
+{width:60%;
+height:50px;
+margin:0 auto;
+}
+.div2 dl
+{
+width:100%;
+height:100%;
+margin:0;
+}
+.div2_dt1
+{
+width:20%;
+height:100%;
+float:left;
+margin:0;
+background-image:url(../images/jls2_03.jpg);
+background-size:100% 100%;
+font-size:16px;
+font-family:"微软雅黑";
+color:#000000;
+line-height:200%;
+text-align:center;
+}
+.div2_dt1f
+{
+width:20%;
+height:100%;
+float:left;
+background-color:#A9AEEC;
+font-size:1.5em;
+font-family:"微软雅黑";
+color:#FFFFFF;
+line-height:200%;
+text-align:center;
+}

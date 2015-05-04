@@ -1,0 +1,65 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">内容管理</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList"> 
+          <tr class="head">
+            <td width="52%" class="tl">标题</td>
+            <td width="12%">栏目</td>
+            <td width="12%">日期</td>
+            <td width="12%">状态</td>
+            <td width="12%">改/续/删</td>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tl"><a href="..$webdb[path]/bencandy.php?fid=$rs[fid]&id=$rs[aid]" target="_blank" title="$rs[full_title]">$rs[title]</a> (<span class="red">{$rs[pages]}页</span>)</td>
+            <td><a href="..$webdb[path]/list.php?fid=$rs[fid]" target="_blank">$rs[fname]</a></td>
+            <td>$rs[posttime]</td>
+            <td>$rs[state]/$rs[levels]</td>
+            <td >
+				<a href="post.php?job=manage&aid=$rs[aid]&mid=$mid&only=$only"><img alt="修改" src="images/post_icon.gif"/></a> 
+<!--
+EOT;
+if(!$rs[mid]){
+print <<<EOT
+-->
+                <a href="post.php?job=post_more&aid=$rs[aid]&mid=$mid&only=$only"><img alt="续发本文,发表多页" src="images/post2.gif" /></a> 
+<!--
+EOT;
+}print <<<EOT
+-->
+               <a onclick="return confirm('你确实要删除本文吗?')" href="?job=$job&do=del&id=$rs[aid]&mid=$mid&only=$only"><img alt="删除" src="images/del_icon2.gif"/></a>
+            </td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+		<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+              <tr align="center"> 
+                <td colspan="5"><div class="page">$showpage</div></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+--> 
+        </table>
+       
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,60 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+<link  rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/1_ournews.css">
+<link  rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/top1.css">
+
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/lbsd1.js"></script>
+<!--<script type="text/javascript" src="$webdb[www_url]/images/sd/js/top.js"></script>-->
+
+<!-----------正文------------->
+
+
+
+
+
+	<div class="lb_joinus">
+		
+		<div class="lb_joinus1">
+		
+			<div class="lb_joinus2">
+				<a href="#"><div class="lb_joinus3"><img src="$webdb[www_url]/images/sd/images/jions2_03.gif" width="100%" height="100%" /></div></a>
+			</div>
+			
+			<div class="lb_joinus9">
+				<ul class="lb_joinus10">
+<!--
+EOT;
+foreach($arr AS $key=>$rs){
+print <<<EOT
+-->	
+
+
+				 
+                    <li><p class="lb_joinus11">$rs[year]</p></li>
+					<li><p class="lb_joinus11">$rs[title]</p></li>
+					<li><p class="lb_joinus12">$rs[description]</p></li>
+                 
+					<li><p class="lb_joinus13"><img src="$webdb[www_url]/images/sd/images/jions2_07.gif" width="100%" height="100%" /></p></li>
+<!--
+EOT;
+}print <<<EOT
+--> 
+				</ul>
+				<div class="lb_joinus14"><!------------左右滑动的两箭头------------->
+					<a class="lb_joinus17" href="$webdb[www_url]/do/2_ournews.php?pag=$fpage"><</a>
+					<a class="lb_joinus18" href="$webdb[www_url]/do/2_ournews.php?pag=$lpage">></a>
+				</div>
+			</div><!------滑动区域结束-------->
+		</div>
+	</div>
+<!------------------正文结束-------------->
+
+</body>
+
+<!--
+EOT;
+?>
+-->

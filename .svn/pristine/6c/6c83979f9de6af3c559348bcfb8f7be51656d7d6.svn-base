@@ -1,0 +1,58 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+<link href="$webdb[www_url]/images/sd/css/contact-us.css" rel="stylesheet" type="text/css">
+<!--<script type="text/javascript" src="$webdb[www_url]/images/sd/js/2_clients.js"></script>-->
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/2_clients1.js"></script>
+
+<div class="content">
+  <div class="contact-us">
+    <div class="contact-usL"><a href="#"><img src="$webdb[www_url]/images/sd/images/Contact-us1.jpg" width="100%" height="100%"></a></div>
+    <div class="contact-usR">
+      <div class="contact-way">
+        <div class="contact-way1">
+          <img src="$webdb[www_url]/images/sd/images/Contact-us2.jpg" width="74.90%" height="12.77%">
+        </div>
+        <div class="contact-way2">
+          <p><img src="$webdb[www_url]/images/sd/images/Contact-us3.1.jpg" width="12.46%" height="3.11%"><span class="way1">$label[lx_tel]</span></p>
+          <p><img src="$webdb[www_url]/images/sd/images/Contact-us3.2.jpg" width="12.46%" height="3.11%"><span class="way2">$label[lx_email]</span></p>
+          <p><img src="$webdb[www_url]/images/sd/images/Contact-us3.3.jpg" width="12.46%" height="3.11%"><span class="way3">$label[lx_addr]</span></p>
+        </div>
+      </div>
+      <div class="linkman">
+        <div class="linkmann">
+          <div class="linkman1">
+            <img src="$webdb[www_url]/images/sd/images/Contact-us4.jpg" width="82.11%" height="9.81%" alt=""/>
+          </div>
+          <div class="linkman2">
+            <div class="lk">
+              <p class="lk1"><img src="$webdb[www_url]/images/sd/images/Contact-us_10.jpg" width="32.8%" height="6.8%"></p>
+              <p class="lk2">$label[lx_one]</p>
+              <p class="lk3">$label[lx_onetel]</p>
+            </div>
+            <div class="lk4"><img src="$webdb[www_url]/images/sd/images/LJf.jpg" width="100%" height="100%"/></div>
+            <div class="lk">
+              <p class="lk1"><img src="$webdb[www_url]/images/sd/images/Contact-us_10.jpg" width="32.8%" height="6.8%"></p>
+              <p class="lk2">$label[lx_two]</p>
+              <p class="lk3">$label[lx_twotel]</p>
+            </div>
+            <div class="lk4"><img src="$webdb[www_url]/images/sd/images/LJf.jpg" width="100%" height="100%"/></div>
+            <div class="lk">
+              <p class="lk1"><img src="$webdb[www_url]/images/sd/images/Contact-us_10.jpg" width="32.8%" height="6.8%"></p>
+              <p class="lk2">$label[lx_three]</p>
+              <p class="lk3">$label[lx_threetel]</p>
+            </div>
+          </div>
+        </div>      
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

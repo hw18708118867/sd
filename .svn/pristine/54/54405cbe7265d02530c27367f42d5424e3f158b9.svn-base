@@ -1,0 +1,38 @@
+﻿<!--
+<?php
+print <<<EOT
+-->
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TablePost">
+              <tr align="center" > 
+                <td width="15%" class="tr">来自：</td>
+                <td width="85%" class="tl">$rsdb[username] 
+                </td>
+              </tr>
+ 
+              <tr> 
+                <td width="15%" class="tr">标题：</td>
+                <td width="85%" class="tl">$rsdb[title] </td>
+              </tr>
+              <tr> 
+                <td width="15%" class="tr">时间：</td>
+                <td width="85%" class="tl">$rsdb[mdate] 
+                </td>
+              </tr>
+              <tr> 
+                <td width="15%" class="tr">内容：</td>
+                <td width="85%" class="tl">$rsdb[content] 
+                </td>
+              </tr>
+              <tr> 
+                <td width="15%" class="tr">选项：</td>
+                <td width="85%" class="tl"> 
+                  [<a href="?job=send&username=$rsdb[username]">回复</a>] [<a href="?job=del&mid=$rsdb[mid]">删除</a>] 
+                  [<a href="?job=list">返回</a>] </td>
+              </tr>   
+            </table>
+
+<!--
+EOT;
+?>
+-->

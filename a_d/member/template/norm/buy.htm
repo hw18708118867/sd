@@ -1,0 +1,134 @@
+﻿<!--
+<?php
+print <<<EOT
+--> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TablePost">
+              <form name="form1" method="post" action="?">
+                <tr> 
+                  <td class="tr" width="15%">广告位名称：</td>
+                  <td class="tl" width="85%">$rsdb[name]</td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">广告类型：</td>
+                  <td class="tl" width="85%">{$array_adtype[$rsdb[type]]}</td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">审核类型：</td>
+                  <td class="tl" width="85%">$rsdb[_ifyz]</td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">费用：</td>
+                  <td class="tl" width="85%">{$rsdb[moneycard]} ({$webdb[MoneyName]}/天)</td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">购买几天：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="atc_day" size="4" value="$rsdb[u_day]">
+                    天</td>
+                </tr>
+                <!--
+EOT;
+if($rsdb[type]=='code'){print <<<EOT
+-->
+                <tr> 
+                  <td class="tr" width="15%">广告代码：</td>
+                  <td class="tl" width="85%"> 
+                    <textarea name="atc_code" cols="60" rows="10">$code</textarea>
+                  </td>
+                </tr>
+                <!--
+EOT;
+}elseif($rsdb[type]=='word'){print <<<EOT
+-->
+                <tr> 
+                  <td class="tr" width="15%">广告文字：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="atc_word" size="30" value="$word">
+                  </td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">广告网址：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="atc_url" size="60" value="$linkurl">
+                  </td>
+                </tr>
+                <!--
+EOT;
+}elseif($rsdb[type]=='pic'){print <<<EOT
+-->
+                <tr> 
+                  <td class="tr" width="15%">广告图片：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="atc_img" size="60" value="$picurl" id="picurlid">
+                    <a href='javascript:' onclick='window.open("$webdb[www_url]/do/upfile.php?fn=upfile&dir=ad&label=picurlid","","width=350,height=50,top=200,left=400")'>点击上传图片</a></td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">广告网址：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="atc_url" size="60" value="$linkurl">
+                  </td>
+                </tr>
+                <!--
+EOT;
+}elseif($rsdb[type]=='swf'){print <<<EOT
+-->
+                <tr> 
+                  <td class="tr" width="15%">广告FLASH：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="atc_url" size="60" value="$flashurl">
+                  </td>
+                </tr>
+                <!--
+EOT;
+}elseif($rsdb[type]=='duilian'){print <<<EOT
+-->
+                <tr> 
+                  <td class="tr" width="15%">广告左边的FLASH/图片源地址：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="l_src" size="60" value="$l_src">
+                  </td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">广告左边的FLASH/图片链接地址：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="l_link" size="60" value="$l_link">
+                  </td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="15%">广告右边的FLASH/图片源地址：</td>
+                  <td class="tl" width="85%"> 
+                    <input type="text" name="r_src" size="60" value="$r_src">
+                  </td>
+                </tr>
+                <tr> 
+                  <td class="tr" width="21%" height="32">广告右边的FLASH/图片链接地址：</td>
+                  <td class="tr" width="79%" height="32"> 
+                    <input type="text" name="r_link" size="60" value="$r_link">
+                  </td>
+                </tr>
+                <!--
+EOT;
+}print <<<EOT
+-->
+                <tr> 
+                  <td class="tr" width="15%">&nbsp;</td>
+                  <td class="tl" width="85%"> 
+                    <input type="submit" name="Submit" value="提交">
+                    <input type="hidden" name="id" value="$id">
+                    <input type="hidden" name="action" value="$job">
+                    <input type="hidden" name="u_id" value="$u_id">
+                  </td>
+                </tr>
+              </form>
+            </table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,label){
+	document.getElementById(label).value=url; 
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

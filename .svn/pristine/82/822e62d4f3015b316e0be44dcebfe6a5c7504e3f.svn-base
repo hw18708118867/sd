@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+if($webdb[ShowMenu]){
+  $sonmenu=@include_once(ROOT_PATH.'data/menu_cache.php');
+}else{
+  $returnjs="return ;";
+    $sonmenu="";
+}
+$GuideFid[$fid]=str_replace("<a href='$webdb[www_url]' class='guide_menu'>&gt;首页</a>","",$GuideFid[$fid]);
+$bodyondblclick = (function_exists('label_array')&&$web_admin&&!$MakeIndex) ?"dblclick_label();":"";
+print <<<EOT
+-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>思答传播机构</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/1.css" />
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/1.js"></script>
+</head>
+
+<body scroll="no">
+
+<div class="div0">
+ <img class="img0" src="$webdb[www_url]/images/sd/images/backgrond.jpg" width="100%" height="100%"/>
+ 
+ <div class="div2a">
+     <img class="img0" src="$webdb[www_url]/images/sd/images/t1.png" width="100%" height="100%"/>
+  </div> 
+  
+ <div class="div2b">
+   <img class="img0" src="$webdb[www_url]/images/sd/images/T2.png" width="100%" height="100%"/>
+  </div>
+  
+  <div class="div2c">
+  
+   <img class="img0" src="$webdb[www_url]/images/sd/images/T3.png" width="100%" height="100%"/>
+  </div>
+ 
+ 
+   <div class="div2d">
+   <img class="img0" src="$webdb[www_url]/images/sd/images/T4.png" width="100%" height="100%"/>
+  </div>
+ 
+  
+  
+  <div class="div1" id="content_box">
+    <img class="img1" src="$webdb[www_url]/images/sd/images/1.png" /> 
+    <a class="a1" href="$webdb[www_url]/do/chuanbo.php">
+    <div class="div1a">
+       <img class="img0" src="$webdb[www_url]/images/sd/images/2.png"/>
+       <P class="P1">我们是谁&nbsp;？</P>
+       <P class="P2">ABOUT US</P>
+    </div>
+    </a>
+    <a class="a1" href="$webdb[www_url]/do/2_who.php">
+    <div class="div1b">
+        <img class="img0" src="$webdb[www_url]/images/sd/images/3.png"/>
+        <P class="P5">我们已做的</P>
+        <P class="P6">CASE DONE</P>    
+    </div>
+    </a>
+    <a class="a1" href="$webdb[www_url]/do/2_ournews.php">
+    <div class="div1c">
+        <img class="img0" src="$webdb[www_url]/images/sd/images/4.png"/>
+        <P class="P3">瞬间的我们</P>
+        <P class="P4">OUR NEWS</P>
+    </div>
+    </a>
+    <a class="a1" href="$webdb[www_url]/do/a_contact-us.php">
+    <div class="div1d">
+       <img class="img0" src="$webdb[www_url]/images/sd/images/5.png"/>
+       <P class="P5">联系我们</P>
+       <P class="P6">CONTACT US</P>  
+    </div>
+    </a>
+  </div>
+</div>
+
+
+<!--<script src=""></script>-->
+<script type="text/javascript">
+    $(function(){
+        $(window).resize(function(){
+            resize_window();
+        });
+
+        function resize_window(){
+            if($(window).width() > 980) {
+                var con_w = $('#content_box').width() / 2;
+                var win_w = $(window).width() / 2;
+                $('#content_box').css('left', (win_w - con_w))
+            }else{
+                $('#content_box').css('left', 100)
+            }
+        }
+        resize_window();
+    });
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

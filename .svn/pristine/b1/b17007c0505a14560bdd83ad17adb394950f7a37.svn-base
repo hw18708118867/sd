@@ -1,0 +1,63 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/mycase1.css"/>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/sd/css/top.css"/>
+<script type="text/javascript" src="$webdb[www_url]/images/sd/js/mycase1.js"></script>
+
+
+
+<!------正文部分------>
+
+<div class="shidiv">
+   
+   <div class="dianl" id="left"><div class="dianbao"><img src="$webdb[www_url]/images/sd/images/left.png"/  ></div></div>
+   <div class="dian2" id="right"><div class="dianbao1"><img src="$webdb[www_url]/images/sd/images/right.png"/></div></div>
+   <div class="shidivbao">
+
+     <div class="shidivbao1"><p>已到左边最后一页</p></div>
+
+   
+     
+<!--
+EOT;
+$i=1;
+foreach($one AS $key=>$rs){
+print <<<EOT
+--> 
+      <div class="shidivbao1" onMouseOver="fangda($i);">
+       <img src="$webdb[www_url]/upload_files/$rs[picurl]" />
+       <div class="shidivbao1f">
+           <div class="shidivbao1fjia0"><img src="$webdb[www_url]/upload_files/$rs[picurl]" /></div>
+           <div class="shidivbao1fjia">
+              <dl>
+                 <dt class="shidivbao1fjia_dt1">$rs[title]</dt>
+                 <dt class="shidivbao1fjia_dt2"></dt>
+                 <dt class="shidivbao1fjia_dt3">$rs[description]</dt>
+              </dl>
+           </div>
+        </div>
+     </div>
+ <!--    
+EOT;
+$i++;
+}print <<<EOT
+--> 
+
+
+
+
+     <div class="shidivbao1"><p>已到右边最后一页</p></div>
+
+    
+   </div>
+</div>
+<!--------正文部分结束------>
+<script type="text/javascript">
+
+<!--
+EOT;
+?>
+-->
+

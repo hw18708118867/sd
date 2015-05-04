@@ -1,0 +1,49 @@
+﻿<!--
+<?php
+$simpleEdit=$m_config[moduleSet][etype]?"":"wordCount:false,toolbars:[['FullScreen', 'Source','PastePlain', 'RemoveFormat', 'Undo', 'Redo','Bold',  'ForeColor', 'BackColor', 'Italic', 'Underline', 'StrikeThrough','FontSize', 'Link', 'Unlink']],";
+print <<<EOT
+-->
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TablePost">
+              <form name="form1" method="post" action="">
+                <tr align="center"> 
+                  <td width="15%" class="tr">接收者：</td>
+                  <td width="85%" class="tl"> 
+                    <input type="text" value="$username" name="touser">
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="15%" class="tr">标题：</td>
+                  <td width="85%" class="tl">
+                    <input type="text" name="title" size="40">
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="15%" class="tr">内容：</td>
+                  <td width="85%" class="tl"> 
+
+<script type="text/javascript" charset=gbk src="$webdb[www_url]/ewebeditor/baidu/editor_config.php"></script> 
+<script type="text/javascript" charset=gbk src="$webdb[www_url]/ewebeditor/baidu/editor_all.js"></script> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/ewebeditor/baidu/themes/default/ueditor.css"/> 
+<textarea id="content1" name="postdb[content]" style="border:none">$rsdb[content]</textarea> 
+<script type="text/javascript">  
+	var editor_a = new baidu.editor.ui.Editor({ {$simpleEdit} minFrameHeight:300 }); 
+	editor_a.render( 'content1' ); 
+</script> 
+
+                   
+                  </td>
+                </tr>
+                <tr> 
+                  <td width="15%" class="tr">&nbsp; </td>
+                  <td width="85%" class="tl"> 
+                    <input type="submit" name="Submit" value="提交">
+                    <input type="hidden" name="step" value="2">
+                  </td>
+                </tr>
+              </form>
+            </table>
+<!--
+EOT;
+?>
+-->

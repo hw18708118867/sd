@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<link href="images/header.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<body scroll="no" style="overflow-y:hidden;">
+<div id="cpmap_menu" class="custom" style="display:none">
+	<div class="cmain" id="cmain"></div>
+	<div class="cfixbd"></div>
+</div>
+<table cellpadding="0" cellspacing="0" width="100%" height="100%" bgcolor="#f7f7f7">
+<tr>
+	<td colspan="2" height="110">
+		<div class="area" >
+			<div class="header">
+			
+                <div class="logo">
+	
+					<div class="version">BSBcms V1.0</div>
+				</div>
+				<div class="right">
+					<div class="headTxt">
+						<h1><font>您好：$userdb[username]，欢迎使用佰仕博CMS! <b>  级别: 
+<!--
+EOT;
+if($admin_name==$userdb[username]){
+print <<<EOT
+--> 创始人
+<!--
+EOT;
+}else{
+print <<<EOT
+-->{$ltitle[$userdb[groupid]]} 
+<!--
+EOT;
+}
+print <<<EOT
+--></b></font>[ <a href="index.php?lfj=center&job=map" target="main">管理首页</a> | <a href='$webdb[www_url]/{$ModuleDB[$Smenu][dirname]}' target="_blank">网站首页</a> | <a href="?lfj=center&job=phpinfo" target="main">服务器信息</a> | <a href=?action=quite target=main>安全退出</a> ]</h1>
+						<div class="commonActions">
+							<h2>
+							<a href="index.php?lfj=sort&job=listsort&only=&mid=" id="four" title="网站栏目管理" target="main">网站栏目管理</a>
+							<a href="index.php?lfj=mysql&job=out" id="three" title="备份网站数据" target="main">备份网站数据</a>
+							<a href="index.php?lfj=cache&job=cache" id="two" title="更新网站缓存" target="main">更新网站缓存</a>
+						
+							<a href="index.php?lfj=center&job=config" id="one" title="网站核心设置" target="main">网站核心设置</a>
+							</h2>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="globalNav" id="menu_td">
+            <h1>
+				<ul id="top_menu_div">
+				<!--
+<?php
+print <<<EOT
+-->
+</td>
+   <!--
+EOT;
+?>
+-->
+</ul>
+			</div>
+		</div>
+	</td>
+</tr>
+</table>
+<span id="more_left" style="display:none;"></span>
+<span id="more_right" style="display:none;"></span>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var menu_array=new Array(
+<?php echo $show;?>
+);
+var menu_td_height=document.getElementById("menu_td").offsetHeight;
+var start_id=0;
+var select_id=0;
+function show_top_menu(){
+	var str='';
+	var last_str='';
+	var jj=-1;
+	for(var i=start_id;i<menu_array.length;i++){
+		jj++;
+		var ar=menu_array[i].split('|');
+		str+='<li id="li'+i+'"><span><a href="#" onclick="sethighlight('+jj+','+i+'); parent.menu.location=\''+ar[2]+'\';return false;">'+ar[0]+'</a></span></li>';
+		document.getElementById("top_menu_div").innerHTML=str;
+
+		var len=0;
+		var lis = document.getElementsByTagName('li');
+		for(var j = 0; j < lis.length; j++) {
+			len=len+lis[j].offsetWidth;
+		}
+		if(len>=761){
+			document.getElementById("top_menu_div").innerHTML=last_str;
+			break;
+		}
+		last_str=str;
+	}
+	show_more_icon();
+	sethigh__light();
+}
+show_top_menu();
+
+function sethighlight(n,m) {
+	var lis = document.getElementsByTagName('li');
+	for(var i = 0; i < lis.length; i++){
+		lis[i].className = '';
+	}
+	select_id=m;
+	lis[n].className = 's1';
+}
+
+function sethigh__light() {
+	var lis = document.getElementsByTagName('li');
+	for(var i = 0; i < lis.length; i++){
+		if(lis[i].id=='li'+select_id){
+			lis[i].className = 's1';
+		}else{
+			lis[i].className = '';
+		}
+	}
+}
+
+function show_more_menu(t){
+	if(t=='left')
+	{
+		if(start_id<(menu_array.length-1)){
+			start_id++;
+		}
+		show_top_menu();
+	}
+	else if(t=='right')
+	{
+		if(start_id>0){
+			start_id--;
+		}
+		show_top_menu();
+	}
+}
+
+function show_more_icon(){
+	document.getElementById("more_left").style.cursor='';
+	document.getElementById("more_right").style.cursor='';
+	if(start_id==(menu_array.length-1)){
+		document.getElementById("more_left").src="images/more_l1.gif";
+		document.getElementById("more_right").style.cursor='hand';
+		document.getElementById("more_right").src="images/more_r2.gif";
+		if(window.ActiveXObject==null){
+			document.getElementById("more_right").style.cursor='pointer';
+		}else{
+			document.getElementById("more_right").style.cursor='hand';
+		}
+	}else if(start_id==0){
+		document.getElementById("more_right").src="images/more_r1.gif";
+		document.getElementById("more_left").src="images/more_l2.gif";
+		if(window.ActiveXObject==null){
+			document.getElementById("more_left").style.cursor='pointer';
+		}else{
+			document.getElementById("more_left").style.cursor='hand';
+		}
+		
+	}else{
+		document.getElementById("more_left").src="images/more_l2.gif";
+		document.getElementById("more_right").src="images/more_r2.gif";
+		if(window.ActiveXObject==null){
+			document.getElementById("more_left").style.cursor='pointer';
+			document.getElementById("more_right").style.cursor='pointer';
+		}else{
+			document.getElementById("more_left").style.cursor='hand';
+			document.getElementById("more_right").style.cursor='hand';
+		}
+	}
+}
+
+function load_window(){
+	sethighlight(0,0);
+	var ar=menu_array[0].split('|');
+	parent.main.location=ar[1];
+	parent.menu.location=ar[2];
+}
+load_window();
+//-->
+</SCRIPT>
+</body>
+</html>
+
+<!--
+EOT;
+?>
+-->

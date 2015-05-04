@@ -1,0 +1,180 @@
+﻿<!--
+<?php
+if($job=="view"){
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">订单详情</div></div>
+    <div class="cont">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList">
+          <tr class="head">
+            <td width="65%" class="tl">商品名称</td>
+            <td width="10%">商品分类</td>
+            <td width="10%">商品型号</td>
+            <td width="10%">商品价格</td>
+            <td width="5%">数量</td>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tl"><a href="..$webdb[path]/bencandy.php?fid=$rs[fid]&id=$rs[aid]" target="_blank">$rs[title]</a></td>
+            <td>$rs[fname]</td>
+            <td>$rs[shoptype]</td>
+            <td>$rs[nowprice]</td>
+            <td>$rs[amount]</td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </table>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TablePost">
+      
+              <tr>
+                <td class="tr" width="15%">订单号：</td>
+                <td class="tl" width="85%">$rsdb[Id]</td>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">联系人：</td>
+                <td class="tl" width="85%">$rsdb[truename] $rsdb[sex] </dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">联系手机：</td>
+                <td class="tl" width="85%">$rsdb[telphone]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">联系电话：</td>
+                <td class="tl" width="85%">$rsdb[mobphone]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">联系邮箱：</td>
+                <td class="tl" width="85%">$rsdb[email]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">联系QQ：</td>
+                <td class="tl" width="85%">$rsdb[oicq]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">邮政编码：</td>
+                <td class="tl" width="85%">$rsdb[postalcode]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">送货方式：</td>
+                <td class="tl" width="85%">$rsdb[sendtype]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">付款方式：</td>
+                <td class="tl" width="85%">$rsdb[paytype]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">收货地址：</td>
+                <td class="tl" width="85%">$rsdb[address]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">付注信息：</td>
+                <td class="tl" width="85%">$rsdb[othersay]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">下单日期：</td>
+                <td class="tl" width="85%">$rsdb[posttime]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">发货与否：</td>
+                <td class="tl" width="85%">$rsdb[ifsend]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">付款情况：</td>
+                <td class="tl" width="85%">$rsdb[ifpay]</dd>
+              </tr>
+              <tr>
+                <td class="tr" width="15%">应付金额：</td>
+                <td class="tl" width="85%">$rsdb[totalmoney]</dd>
+              </tr>
+          </td>
+         </tr>
+        </table> 
+       <div class="td_btn"><p><a href="?job=list" class="botton cancel">点击返回</a></p></div>
+    </div>
+</div>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">商品订单</div></div>
+    <div class="cont">
+    <!--
+EOT;
+if($listdb){
+print <<<EOT
+-->
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="TableStyle TableList">
+          <tr class="head">
+            <td width="15%">订单号</td>
+            <td width="20%">下单日期</td>
+            <td width="20%">应付金额</td>
+            <td width="15%">付款情况</td>
+            <td width="15%">发货与否</td>
+            <td width="15%">详情/删除</td>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td>$rs[Id]</td>
+            <td>$rs[posttime]</td>
+            <td>$rs[totalmoney] 元</td>
+            <td>$rs[ifpay]</td>
+            <td>$rs[ifsend]</td>
+            <td>
+            	<a href="?job=view&id=$rs[id]"><img alt='浏览' src='../member/images/icon_view.gif' align="middle" /></a> 
+                <a href="?job=$job&action=del_record&id=$rs[id]" onclick="return confirm('你确实要删除吗?');"><img alt='点击删除' src='./images/del_icon2.gif' align="middle" /></a>
+            </td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+              <tr align="center"> 
+                <td colspan="6"><div class="page">$showpage</div></td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+    <!--
+EOT;
+}else{
+print <<<EOT
+-->
+<div class="tipsdiv">
+您还没有商品订单！
+</div>
+<!--
+EOT;
+}print <<<EOT
+--> 
+    
+    
+    
+    </div>
+</div>
+<!--
+EOT;
+}
+?>
+-->

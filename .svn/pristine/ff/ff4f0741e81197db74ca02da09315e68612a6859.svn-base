@@ -1,0 +1,26 @@
+﻿@charset "utf-8";
+/*life CSS Document */
+
+/*CSS Reset*/
+body, div p, span {margin: 0;padding: 0;}
+body {font: 100% "Microsoft YaHei",tahoma,arial,\5b8b\4f53;}
+img {border:none;}
+a {text-decoration:none;}
+
+.content {width:100%;}
+.clients {width:65%;margin:10% auto;border-bottom:0px solid #A4A4A4; position:relative;}
+.client {width:85%;margin:0 auto;}
+.clients1 p{font-size:200%;line-height:150%;}
+.clients1 span {font-family:"楷体";font-size:140%;color:#000;}
+
+.clients2 {width:92%;margin:0 auto;overflow:hidden; }
+.clients22 {width:1000%;position: relative;height:500px;}
+.ck {width:2.5%;float:left;text-align:center;height:80%;}
+.ck1{display:inline-block;margin:10px 8px; border:1px dashed #888;width:50%;height:32%;border-radius:100%;-moz-border-radius:100%; /* Old Firefox */}
+.ck1 img {width:86%;height:48%;position:relative;top:26%;left:0;}
+
+
+.Button {width:12.9%;height:6.9%; background-image:url(../images/Clients_9.jpg); background-size:100% 100%; position:absolute;top:70%;left:45%; background-color:#060;}
+.Button .L {width:54%;height:100%;display:inline-block;float:left;}
+.Button .R {width:46%;height:100%;display:inline-block;float:left;}
+
